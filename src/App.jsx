@@ -1,11 +1,12 @@
 import './App.css'
+import QuizPage from './components/QuizPage'
 
 function App() {
   
 
   return (
     <>
-      
+      <QuizPage/>
     </>
   )
 }
