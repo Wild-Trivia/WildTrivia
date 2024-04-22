@@ -1,7 +1,11 @@
-const currentQuestion = "Who was the king of England during the 2nd century?"
+import PropTypes from "prop-types";
 
-function AskBox() {
-    return (<div id="ask-box">{currentQuestion}</div>)
-    }
-    
-    export default AskBox;
+function AskBox({ questionText }) {
+  return <div id="ask-box">{questionText}</div>;
+}
+
+export default AskBox;
+
+AskBox.propTypes = {
+  questionText: PropTypes.string.isRequired,
+};

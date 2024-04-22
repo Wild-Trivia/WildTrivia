@@ -1,33 +1,32 @@
 import PropTypes from "prop-types";
 
-function QuizCheckText({questionStatus}) {
-    const displayStyle = () => {
-        switch(questionStatus) {
-          case "Pending":
-            return "none";
-          case "CORRECT!":
-          case "WRONG!":
-            return "initial";
-              }
+function QuizCheckText({ questionStatus, questionTiming }) {
+  const checkStyle = () => {
+    if (questionTiming === "Ending") {
+      switch (questionStatus) {
+        case "Pending":
+          return { display: "none", color: "rgba(215, 204, 248, 0)" };
+        case "CORRECT!":
+          return { display: "initial", color: "#0bc734" };
+        case "WRONG!":
+        case "TIME'S UP!":
+          return { display: "initial", color: "#cc271c" };
       }
-
-      const colorStyle = () => {
-        switch(questionStatus) {
-          case "Pending":
-            return "rgba(215, 204, 248, 0)";
-          case "CORRECT!":
-            return "#0bc734";
-          case "WRONG!":
-            return "#cc271c";
-              }
-      }
-
-
-    return (<div style={{display: displayStyle(), color: colorStyle()}} id="quiz-check-text">{questionStatus}</div>)
+    } else {
+      return { display: "none", color: "rgba(215, 204, 248, 0)" };
     }
-    
+  };
+
+  return (
+    <div style={checkStyle()} id="quiz-check-text">
+      {questionStatus}
+    </div>
+  );
+}
+
 export default QuizCheckText;
 
 QuizCheckText.propTypes = {
-    questionStatus: PropTypes.string.isRequired,
-  }
+  questionStatus: PropTypes.string.isRequired,
+  questionTiming: PropTypes.string.isRequired,
+};

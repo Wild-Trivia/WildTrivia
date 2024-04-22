@@ -1,79 +1,130 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
+function AnswerBox({
+  answer,
+  questionStatus,
+  questionTiming,
+  clickCorrect,
+  clickWrong,
+}) {
+  const [answerStatus, setAnswerStatus] = useState("unselected");
 
-function AnswerBox({answer, questionStatus, setQuestionStatus}) {
-const [answerStatus, setAnswerStatus] = useState("unselected")
-
-useEffect(() => {
-  if ((questionStatus === "Pending")) {
-    setAnswerStatus("unselected")
-  } else if ((questionStatus !== "Pending") && (answerStatus === "unselected") && answer.isCorrect) {
-    setAnswerStatus("unselected-correct")
-  } else if ((questionStatus !== "Pending") && (answerStatus === "unselected") && (answer.isCorrect === false)) {
-    setAnswerStatus("unselected-wrong")
-  }
-
-}, [questionStatus, answerStatus, answer.isCorrect])
+  useEffect(() => {
+    if (questionTiming === "Ongoing") {
+      setAnswerStatus("unselected");
+    } else if (
+      questionTiming === "Time" &&
+      answerStatus === "unselected" &&
+      answer.isCorrect
+    ) {
+      setAnswerStatus("time-unselected-correct");
+    } else if (
+      questionTiming === "Time" &&
+      answerStatus === "unselected" &&
+      answer.isCorrect === false
+    ) {
+      setAnswerStatus("time-unselected-wrong");
+    } else if (
+      questionTiming === "Timeup" &&
+      answerStatus === "unselected" &&
+      answer.isCorrect
+    ) {
+      setAnswerStatus("timeup-unselected-correct");
+    } else if (
+      questionTiming === "Timeup" &&
+      answerStatus === "unselected" &&
+      answer.isCorrect === false
+    ) {
+      setAnswerStatus("timeup-unselected-wrong");
+    } else if (
+      questionTiming === "Ending" &&
+      (answerStatus === "time-unselected-correct" ||
+        answerStatus === "timeup-unselected-correct")
+    ) {
+      setAnswerStatus("ending-unselected-correct");
+    } else if (
+      questionTiming === "Ending" &&
+      answerStatus === "time-unselected-wrong"
+    ) {
+      setAnswerStatus("ending-unselected-wrong");
+    } else if (
+      questionTiming === "Ending" &&
+      answerStatus === "time-selected-correct"
+    ) {
+      setAnswerStatus("ending-selected-correct");
+    } else if (
+      questionTiming === "Ending" &&
+      (answerStatus === "time-selected-wrong" ||
+        answerStatus === "timeup-unselected-wrong")
+    ) {
+      setAnswerStatus("ending-selected-wrong");
+    }
+  }, [questionTiming]);
 
   const handleClick = () => {
-        if ( answer.isCorrect ) {
-      setQuestionStatus("CORRECT!")
-      setAnswerStatus("selected-correct")
+    if (answer.isCorrect) {
+      clickCorrect();
+      setAnswerStatus("time-selected-correct");
     } else {
-      setQuestionStatus("WRONG!")
-      setAnswerStatus("selected-wrong")
+      clickWrong();
+      setAnswerStatus("time-selected-wrong");
     }
   };
-  
-const backgroundStyle = () => {
-  switch(answerStatus) {
-    case "unselected":
-      return "white";
-    case "selected-correct":
-      return "rgba(160, 249, 146, 0.7)";
-    case "selected-wrong":
-      return "rgba(232, 101, 101, 0.7)";
-    case "unselected-correct":
-      return "rgba(160, 249, 146, 0.7)";
-    case "unselected-wrong":
-      return "rgba(175, 172, 172, 0.7)";
-        }
-}
 
-const borderStyle = () => {
-  switch(answerStatus) {
-    case "unselected":
-      return "solid 1px #e4e4e4";
-    case "selected-correct":
-      return "solid 1px #5be77a";
-    case "selected-wrong":
-      return "solid 1px #e51818";
-    case "unselected-correct":
-      return "solid 1px #5be77a";
-    case "unselected-wrong":
-      return "solid 1px #e4e4e4";
-        }
-}
+  const answerStyle = () => {
+    switch (answerStatus) {
+      case "unselected":
+        return { backgroundColor: "white", border: "solid 1px #e4e4e4" };
+      case "time-selected-correct":
+      case "time-selected-wrong":
+        return { backgroundColor: "#eee85e", border: "solid 1px #f3ea08" };
+      case "ending-selected-correct":
+      case "ending-unselected-correct":
+        return {
+          backgroundColor: "rgba(160, 249, 146, 0.7)",
+          border: "solid 1px #5be77a",
+        };
+      case "ending-selected-wrong":
+        return {
+          backgroundColor: "rgba(232, 101, 101, 0.7)",
+          border: "solid 1px #e51818",
+        };
+      case "time-unselected-correct":
+      case "time-unselected-wrong":
+      case "timeup-unselected-correct":
+      case "timeup-unselected-wrong":
+      case "ending-unselected-wrong":
+        return {
+          backgroundColor: "rgba(175, 172, 172, 0.7)",
+          border: "solid 1px #e4e4e4",
+        };
+    }
+  };
 
-    return (<button
+  return (
+    <button
       id={answer.id}
-      style={{backgroundColor: backgroundStyle(), border: borderStyle()}}
+      style={answerStyle()}
       className="answer-box"
       onClick={handleClick}
-      disabled={ questionStatus !== "Pending" }
-      >{answer.text}</button>)
-    }
-    
+      disabled={questionStatus !== "Pending"}
+    >
+      {answer.text}
+    </button>
+  );
+}
+
 export default AnswerBox;
 
 AnswerBox.propTypes = {
-        answer: PropTypes.shape({
-          id: PropTypes.number.isRequired,
-          text: PropTypes.string.isRequired,
-          isCorrect: PropTypes.bool.isRequired,
-        }).isRequired,
-        questionStatus: PropTypes.string.isRequired,
-        setQuestionStatus: PropTypes.func.isRequired,
-      }
-
+  answer: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    isCorrect: PropTypes.bool.isRequired,
+  }).isRequired,
+  questionStatus: PropTypes.string.isRequired,
+  questionTiming: PropTypes.string.isRequired,
+  clickCorrect: PropTypes.func.isRequired,
+  clickWrong: PropTypes.func.isRequired,
+};

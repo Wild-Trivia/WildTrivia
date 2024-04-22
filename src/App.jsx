@@ -1,14 +1,12 @@
-import './App.css'
-import QuizPage from './components/QuizPage'
+import { Outlet } from "react-router-dom";
+import "./App.css";
 
 function App() {
-  
-
   return (
     <>
-      <QuizPage/>
+      <Outlet />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

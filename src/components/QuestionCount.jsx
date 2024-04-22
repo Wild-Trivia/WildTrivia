@@ -1,8 +1,16 @@
-const currentQuestion = 10;
-const questionTotal = 18;
+import PropTypes from "prop-types";
 
-function QuestionCount() {
-    return (<div id="question-count">{currentQuestion}/{questionTotal}</div>)
-    }
-    
+function QuestionCount({ currentQuestion, quizLength }) {
+  return (
+    <div id="question-count">
+      {currentQuestion}/{quizLength}
+    </div>
+  );
+}
+
 export default QuestionCount;
+
+QuestionCount.propTypes = {
+  quizLength: PropTypes.number.isRequired,
+  currentQuestion: PropTypes.number.isRequired,
+};

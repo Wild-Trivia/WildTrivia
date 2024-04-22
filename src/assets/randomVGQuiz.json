@@ -1,0 +1,102 @@
+[
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Entertainment: Video Games",
+    "question": "Who was the king of England during the 2nd century?",
+    "correct_answer": "Kiwi",
+    "incorrect_answers": ["Banana", "Apple", "Tangerine"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Entertainment: Video Games",
+    "question": "Which stage was planned to be a part of &quot;Sonic the Hedgehog 2&quot;, but was scrapped during development?",
+    "correct_answer": "Genocide City Zone",
+    "incorrect_answers": [
+      "Stardust Speedway Zone",
+      "Sky High Zone ",
+      "Clockwork Zone"
+    ]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Entertainment: Video Games",
+    "question": "Which character does the player play as in the video game &quot;Bastion&quot;?",
+    "correct_answer": "The Kid",
+    "incorrect_answers": ["Rucks", "Zulf", "Zia"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Entertainment: Video Games",
+    "question": "In WarioWare: Smooth Moves, which one of these is NOT a Form?",
+    "correct_answer": "The Hotshot",
+    "incorrect_answers": ["The Discard", "The Elephant", "The Mohawk"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Entertainment: Video Games",
+    "question": "Which of the following Copy Abilities was only featured in &quot;Kirby &amp; The Amazing Mirror&quot;?",
+    "correct_answer": "Mini",
+    "incorrect_answers": ["Magic", "Smash", "Missile"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Entertainment: Video Games",
+    "question": "Which game won the &quot;Games for Impact&quot; award in The Game Awards 2015?",
+    "correct_answer": "Life is Strange",
+    "incorrect_answers": [
+      "Ori and the Blind Forest",
+      "Rocket League",
+      "Metal Gear Solid V: The Phantom Pain"
+    ]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Entertainment: Video Games",
+    "question": "During the events of Half-Life: Opposing Force, what is the age of Adrian Shephard, the protagonist?",
+    "correct_answer": "22",
+    "incorrect_answers": ["23", "21", "24"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Entertainment: Video Games",
+    "question": "What is the world&#039;s first video game console?",
+    "correct_answer": "Magnavox Odyssey",
+    "incorrect_answers": [
+      "Coleco Telstar",
+      "Nintendo Color TV Game",
+      "Atari 2600"
+    ]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Entertainment: Video Games",
+    "question": "What character is NOT apart of the Grand Theft Auto series?",
+    "correct_answer": "Michael Cardenas",
+    "incorrect_answers": ["Packie McReary", "Tommy Vercetti", "Lester Crest"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Entertainment: Video Games",
+    "question": "Who is credited with having created the world&#039;s first video game Easter Egg?",
+    "correct_answer": "Warren Robinett",
+    "incorrect_answers": ["Julius Smith", "Will Crowther", "Don Woods"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Entertainment: Video Games",
+    "question": "Which pop singer was brought in by SEGA to produce the music for &quot;Sonic the Hedgehog 3&quot;?",
+    "correct_answer": "Michael Jackson ",
+    "incorrect_answers": ["Prince", "George Michael", "Vanilla Ice "]
+  }
+]

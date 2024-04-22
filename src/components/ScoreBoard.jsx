@@ -1,10 +1,16 @@
-const score = 543
+import PropTypes from "prop-types";
 
-function ScoreBoard() {
-    return (<div id="score-board">
-        <div id="score-text">Score</div>
-        <div id="score-number">{score}</div>
-    </div>)
-    }
-    
-    export default ScoreBoard;
+function ScoreBoard({ score }) {
+  return (
+    <div id="score-board">
+      <div id="score-text">Score</div>
+      <div id="score-number">{score}</div>
+    </div>
+  );
+}
+
+export default ScoreBoard;
+
+ScoreBoard.propTypes = {
+  score: PropTypes.number.isRequired,
+};
