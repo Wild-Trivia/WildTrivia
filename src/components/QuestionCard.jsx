@@ -6,7 +6,7 @@ import QuizCheckText from "./QuizCheckText";
 
 function QuestionCard({
   quizLength,
-  currentQuestion,
+  currentQuestionNumber,
   questionStatus,
   questionTiming,
   questionText,
@@ -38,7 +38,7 @@ function QuestionCard({
     <div id="question-card" style={borderStyle()}>
       <div id="card-header">
         <QuestionCount
-          currentQuestion={currentQuestion}
+          currentQuestionNumber={currentQuestionNumber}
           quizLength={quizLength}
         />
         <QuizCheckText
@@ -72,7 +72,7 @@ export default QuestionCard;
 
 QuestionCard.propTypes = {
   quizLength: PropTypes.number.isRequired,
-  currentQuestion: PropTypes.number.isRequired,
+  currentQuestionNumber: PropTypes.number.isRequired,
   questionStatus: PropTypes.string.isRequired,
   questionTiming: PropTypes.string.isRequired,
   questionText: PropTypes.string.isRequired,

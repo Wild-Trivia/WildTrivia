@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 
-function QuestionCount({ currentQuestion, quizLength }) {
+function QuestionCount({ currentQuestionNumber, quizLength }) {
   return (
     <div id="question-count">
-      {currentQuestion}/{quizLength}
+      {currentQuestionNumber}/{quizLength}
     </div>
   );
 }
@@ -12,5 +12,5 @@ export default QuestionCount;
 
 QuestionCount.propTypes = {
   quizLength: PropTypes.number.isRequired,
-  currentQuestion: PropTypes.number.isRequired,
+  currentQuestionNumber: PropTypes.number.isRequired,
 };

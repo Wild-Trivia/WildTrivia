@@ -3,14 +3,6 @@
     "type": "multiple",
     "difficulty": "medium",
     "category": "Entertainment: Video Games",
-    "question": "Who was the king of England during the 2nd century?",
-    "correct_answer": "Kiwi",
-    "incorrect_answers": ["Banana", "Apple", "Tangerine"]
-  },
-  {
-    "type": "multiple",
-    "difficulty": "medium",
-    "category": "Entertainment: Video Games",
     "question": "Which stage was planned to be a part of &quot;Sonic the Hedgehog 2&quot;, but was scrapped during development?",
     "correct_answer": "Genocide City Zone",
     "incorrect_answers": [
