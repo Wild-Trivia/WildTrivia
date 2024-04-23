@@ -3,6 +3,7 @@ import ScoreBoard from "../components/ScoreBoard";
 import QuizTimer from "../components/QuizTimer";
 import QuestionCard from "../components/QuestionCard";
 import data from "../assets/randomVGQuiz.json";
+import { shuffle, decodeHTMLEntities, clearTimer } from "../assets/functions";
 import { useState, useEffect } from "react";
 
 function QuizPage() {
@@ -10,7 +11,9 @@ function QuizPage() {
     data: data,
     length: data.length,
     currentQuestionNumber: 1,
-    score: 0,
+    totalScore: 0,
+    timeBonus: 0,
+    questionScore: 0,
     timer: 15,
     timerID: 1,
     timeRemaining: 15,
@@ -42,35 +45,20 @@ function QuizPage() {
     },
   });
 
-  function decodeHTMLEntities(text) {
-    let textArea = document.createElement("textarea");
-    textArea.innerHTML = text;
-    return textArea.value;
-  }
-  function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
   function shuffleAnswers() {
     setQuizState((value) => {
       return {
         ...value,
         answers: shuffle([
-          quizState.currentQuestion.incorrectAnswer1,
-          quizState.currentQuestion.incorrectAnswer2,
-          quizState.currentQuestion.incorrectAnswer3,
-          quizState.currentQuestion.correctAnswer,
+          value.currentQuestion.incorrectAnswer1,
+          value.currentQuestion.incorrectAnswer2,
+          value.currentQuestion.incorrectAnswer3,
+          value.currentQuestion.correctAnswer,
         ]),
       };
     });
   }
-  function clearTimer() {
-    console.log("clearTimer used");
-    clearInterval(quizState.timerID);
-  }
+
   function timingEnding() {
     setQuizState((value) => {
       return {
@@ -79,32 +67,61 @@ function QuizPage() {
       };
     });
   }
-  function timingTimeup() {
+
+  function questionSetUp() {
+    console.log("Question set up");
     setQuizState((value) => {
       return {
         ...value,
         currentQuestion: {
           ...value.currentQuestion,
-          status: "TIME'S UP!",
-          timing: "Timeup",
+          status: "Pending",
+          timing: "Ongoing",
+          text: decodeHTMLEntities(
+            value.data[value.currentQuestionNumber - 1].question
+          ),
+          incorrectAnswer1: {
+            id: 1,
+            text: decodeHTMLEntities(
+              value.data[value.currentQuestionNumber - 1].incorrect_answers[0]
+            ),
+            isCorrect: false,
+          },
+          incorrectAnswer2: {
+            id: 2,
+            text: decodeHTMLEntities(
+              value.data[value.currentQuestionNumber - 1].incorrect_answers[1]
+            ),
+            isCorrect: false,
+          },
+          incorrectAnswer3: {
+            id: 3,
+            text: decodeHTMLEntities(
+              value.data[value.currentQuestionNumber - 1].incorrect_answers[2]
+            ),
+            isCorrect: false,
+          },
+          correctAnswer: {
+            id: 4,
+            text: decodeHTMLEntities(
+              value.data[value.currentQuestionNumber - 1].correct_answer
+            ),
+            isCorrect: true,
+          },
         },
       };
     });
   }
+
   function clickCorrect() {
-    const timeBonus = quizState.timeRemaining * 5;
-    setTimeout(() => {
-      setQuizState((value) => {
-        return { ...value, score: value.score + 100 + timeBonus };
-      });
-    }, 2000);
     setQuizState((value) => {
-      return { ...value, timeRemaining: 0 };
+      return { ...value, timeBonus: value.timeRemaining * 5 };
     });
-    clearTimer();
     setQuizState((value) => {
       return {
         ...value,
+        timeRemaining: 0,
+        questionScore: 100 + value.timeBonus,
         currentQuestion: {
           ...value.currentQuestion,
           status: "CORRECT!",
@@ -112,15 +129,15 @@ function QuizPage() {
         },
       };
     });
+    clearTimer(quizState.timerID);
   }
+
   function clickWrong() {
-    setQuizState((value) => {
-      return { ...value, timeRemaining: 0 };
-    });
-    clearTimer();
     setQuizState((value) => {
       return {
         ...value,
+        timeRemaining: 0,
+        questionScore: 0,
         currentQuestion: {
           ...value.currentQuestion,
           status: "WRONG!",
@@ -128,8 +145,13 @@ function QuizPage() {
         },
       };
     });
+    clearTimer(quizState.timerID);
   }
+
   function nextQuestion() {
+    setQuizState((value) => {
+      return { ...value, totalScore: value.totalScore + value.questionScore };
+    });
     if (quizState.length === quizState.currentQuestionNumber) {
       setQuizState((value) => {
         return { ...value, currentQuestionNumber: 1 };
@@ -143,53 +165,6 @@ function QuizPage() {
       });
     }
   }
-  function questionSetUp() {
-    console.log("Question set up");
-    setQuizState((value) => {
-      return {
-        ...value,
-        currentQuestion: {
-          ...value.currentQuestion,
-          status: "Pending",
-          timing: "Ongoing",
-          text: decodeHTMLEntities(
-            quizState.data[quizState.currentQuestionNumber - 1].question
-          ),
-          incorrectAnswer1: {
-            id: 1,
-            text: decodeHTMLEntities(
-              quizState.data[quizState.currentQuestionNumber - 1]
-                .incorrect_answers[0]
-            ),
-            isCorrect: false,
-          },
-          incorrectAnswer2: {
-            id: 2,
-            text: decodeHTMLEntities(
-              quizState.data[quizState.currentQuestionNumber - 1]
-                .incorrect_answers[1]
-            ),
-            isCorrect: false,
-          },
-          incorrectAnswer3: {
-            id: 3,
-            text: decodeHTMLEntities(
-              quizState.data[quizState.currentQuestionNumber - 1]
-                .incorrect_answers[2]
-            ),
-            isCorrect: false,
-          },
-          correctAnswer: {
-            id: 4,
-            text: decodeHTMLEntities(
-              quizState.data[quizState.currentQuestionNumber - 1].correct_answer
-            ),
-            isCorrect: true,
-          },
-        },
-      };
-    });
-  }
 
   useEffect(() => {
     questionSetUp();
@@ -198,7 +173,7 @@ function QuizPage() {
   useEffect(() => {
     shuffleAnswers();
     setQuizState((value) => {
-      return { ...value, timeRemaining: quizState.timer };
+      return { ...value, timeRemaining: value.timer };
     });
   }, [quizState.currentQuestion.text]);
 
@@ -208,8 +183,16 @@ function QuizPage() {
         setQuizState((value) => {
           if (value.timeRemaining <= 1) {
             clearInterval(timer1);
-            timingTimeup();
-            return { ...value, timeRemaining: 0 };
+            return {
+              ...value,
+              timeRemaining: 0,
+              questionScore: 0,
+              currentQuestion: {
+                ...value.currentQuestion,
+                status: "TIME'S UP!",
+                timing: "Timeup",
+              },
+            };
           }
           console.log("Ongoing timer:", value.timeRemaining - 1);
           return { ...value, timeRemaining: value.timeRemaining - 1 };
@@ -249,7 +232,7 @@ function QuizPage() {
     <div id="quiz-page-container">
       <div id="quiz-info-container">
         <QuitButton />
-        <ScoreBoard score={quizState.score} />
+        <ScoreBoard score={quizState.totalScore} />
         <QuizTimer timeRemaining={quizState.timeRemaining} />
       </div>
       <QuestionCard

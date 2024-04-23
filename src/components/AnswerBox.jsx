@@ -39,13 +39,13 @@ function AnswerBox({
       setAnswerStatus("timeup-unselected-wrong");
     } else if (
       questionTiming === "Ending" &&
-      (answerStatus === "time-unselected-correct" ||
-        answerStatus === "timeup-unselected-correct")
+      answerStatus === "time-unselected-correct"
     ) {
       setAnswerStatus("ending-unselected-correct");
     } else if (
       questionTiming === "Ending" &&
-      answerStatus === "time-unselected-wrong"
+      (answerStatus === "time-unselected-wrong" ||
+        answerStatus === "timeup-unselected-wrong")
     ) {
       setAnswerStatus("ending-unselected-wrong");
     } else if (
@@ -55,10 +55,14 @@ function AnswerBox({
       setAnswerStatus("ending-selected-correct");
     } else if (
       questionTiming === "Ending" &&
-      (answerStatus === "time-selected-wrong" ||
-        answerStatus === "timeup-unselected-wrong")
+      answerStatus === "time-selected-wrong"
     ) {
       setAnswerStatus("ending-selected-wrong");
+    } else if (
+      questionTiming === "Ending" &&
+      answerStatus === "timeup-unselected-correct"
+    ) {
+      setAnswerStatus("ending-timeup-unselected-correct");
     }
   }, [questionTiming]);
 
@@ -78,7 +82,7 @@ function AnswerBox({
         return { backgroundColor: "white", border: "solid 1px #e4e4e4" };
       case "time-selected-correct":
       case "time-selected-wrong":
-        return { backgroundColor: "#eee85e", border: "solid 1px #f3ea08" };
+        return { backgroundColor: "#f4d76d", border: "solid 1px #dbb01a" };
       case "ending-selected-correct":
       case "ending-unselected-correct":
         return {
@@ -98,6 +102,11 @@ function AnswerBox({
         return {
           backgroundColor: "rgba(175, 172, 172, 0.7)",
           border: "solid 1px #e4e4e4",
+        };
+      case "ending-timeup-unselected-correct":
+        return {
+          backgroundColor: "#ffab5e",
+          border: "solid 1px #e26c47",
         };
     }
   };
