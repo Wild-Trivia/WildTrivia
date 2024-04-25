@@ -11,8 +11,3 @@ export function decodeHTMLEntities(text) {
   textArea.innerHTML = text;
   return textArea.value;
 }
-
-export function clearTimer(ID) {
-  console.log("clearTimer used");
-  clearInterval(ID);
-}
