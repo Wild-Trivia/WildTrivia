@@ -38,12 +38,13 @@
   height: 60px;
   border: solid 2px rgba(123, 89, 218, 0.5);
   border-radius: 50px;
-  background-color: #fff;
-}
-
-#quitting-guy {
-  background-color: #ffffff00;
-  transform: translateX(9px);
+  background-color: rgba(123, 89, 218, 0.5);
+  color: #fff;
+  align-content: center;
+  text-align: center;
+  /* -webkit-text-stroke: 1px #0d0d0d; */
+  font-family: "Audiowide", sans-serif;
+  font-size: 28px;
 }
 
 #quiz-timer {
@@ -141,8 +142,7 @@
   margin-bottom: 30px;
   align-content: center;
   text-align: center;
-  -webkit-text-stroke: 1px #0d0d0d;
-  font-family: "Sigmar One", sans-serif;
+  font-family: "Autour One", sans-serif;
   font-size: 20px;
   letter-spacing: 0.44px;
   color: #fff;

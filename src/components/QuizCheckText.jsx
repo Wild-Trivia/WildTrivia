@@ -9,8 +9,9 @@ function QuizCheckText({ questionStatus, questionTiming }) {
         case "CORRECT!":
           return { display: "initial", color: "#0bc734" };
         case "WRONG!":
-        case "TIME'S UP!":
           return { display: "initial", color: "#cc271c" };
+        case "TIME'S UP!":
+          return { display: "initial", color: "#f18548" };
       }
     } else {
       return { display: "none", color: "rgba(215, 204, 248, 0)" };

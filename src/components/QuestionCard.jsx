@@ -22,17 +22,14 @@ function QuestionCard({
         case "CORRECT!":
           return { border: "solid 1px #00ff38" };
         case "WRONG!":
-        case "TIME'S UP!":
           return { border: "solid 1px #e92d21" };
+        case "TIME'S UP!":
+          return { border: "solid 1px #e26c47" };
       }
     } else {
       return { border: "solid 1px rgba(179, 179, 179, 0.7)" };
     }
   };
-
-  //   const handleClick = () => {
-  //     setQuestion({ ...question, status: "Pending" });
-  //   };
 
   return (
     <div id="question-card" style={borderStyle()}>
@@ -61,9 +58,7 @@ function QuestionCard({
           );
         })}
       </div>
-      <div id="void-foot">
-        {/* <button onClick={handleClick}>Reset</button> */}
-      </div>
+      <div id="void-foot"></div>
     </div>
   );
 }
