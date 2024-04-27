@@ -7,6 +7,7 @@ import {
   NEXT_QUESTION,
   TIMER_ONGOING,
   SET_TIMERID,
+  TOGGLE_QUIT_BUTTON,
 } from "./quizReducerActions";
 import { shuffle, decodeHTMLEntities } from "../assets/functions";
 
@@ -14,7 +15,8 @@ export default function quizReducer(state, action) {
   switch (action.type) {
     case TIMER_RESET_SHUFFLE_ANSWERS:
       return {
-        ...state, timeRemaining: state.timer,
+        ...state,
+        timeRemaining: state.timer,
         answers: shuffle([
           state.currentQuestion.incorrectAnswer1,
           state.currentQuestion.incorrectAnswer2,
@@ -94,31 +96,38 @@ export default function quizReducer(state, action) {
       };
     case NEXT_QUESTION: {
       if (state.length === state.currentQuestionNumber) {
-          return { ...state, totalScore: state.totalScore + state.questionScore, currentQuestionNumber: 1 };
+        return {
+          ...state,
+          totalScore: state.totalScore + state.questionScore,
+          currentQuestionNumber: 1,
+        };
       } else {
-          return {
-            ...state, totalScore: state.totalScore + state.questionScore,
-            currentQuestionNumber: state.currentQuestionNumber + 1,
-          };
+        return {
+          ...state,
+          totalScore: state.totalScore + state.questionScore,
+          currentQuestionNumber: state.currentQuestionNumber + 1,
+        };
       }
     }
     case TIMER_ONGOING: {
-        if (state.timeRemaining <= 1) {
-          clearInterval(state.timerID);
-          return {
-            ...state,
-            timeRemaining: 0,
-            questionScore: 0,
-            currentQuestion: {
-              ...state.currentQuestion,
-              status: "TIME'S UP!",
-              timing: "Timeup",
-            },
-          };
-        }
-        return { ...state, timeRemaining: state.timeRemaining - 1 };
+      if (state.timeRemaining <= 1) {
+        clearInterval(state.timerID);
+        return {
+          ...state,
+          timeRemaining: 0,
+          questionScore: 0,
+          currentQuestion: {
+            ...state.currentQuestion,
+            status: "TIME'S UP!",
+            timing: "Timeup",
+          },
+        };
+      }
+      return { ...state, timeRemaining: state.timeRemaining - 1 };
     }
     case SET_TIMERID:
       return { ...state, timerID: action.payload };
+    case TOGGLE_QUIT_BUTTON:
+      return { ...state, isQuitPushed: !state.isQuitPushed };
   }
 }

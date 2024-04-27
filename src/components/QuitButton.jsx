@@ -1,21 +1,17 @@
-import { useState } from "react";
-import QuitConfirmWindow from "./QuitConfirmWindow";
+import PropTypes from "prop-types";
 
-function QuitButton() {
-  const [isQuitPushed, setIsQuitPushed] = useState(false);
-
-  const handleClick = () => {
-    setIsQuitPushed(true);
-  }
-
-  const backOption = () => {
-    setIsQuitPushed(false);
-  }
-
-  return (<>
-  <button id="quit-button" onClick={handleClick} disabled={isQuitPushed}>X</button>
-  {isQuitPushed && <QuitConfirmWindow backOption={backOption} />}
-  </>);
+function QuitButton({ handleQuitButton }) {
+  return (
+    <>
+      <button id="quit-button" onClick={handleQuitButton}>
+        X
+      </button>
+    </>
+  );
 }
 
 export default QuitButton;
+
+QuitButton.propTypes = {
+  handleQuitButton: PropTypes.func.isRequired,
+};

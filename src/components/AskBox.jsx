@@ -1,7 +1,11 @@
 import PropTypes from "prop-types";
 
 function AskBox({ questionText }) {
-  return <div id="ask-box">{questionText}</div>;
+  return (
+    <div id="ask-box">
+      <p id="question-text">{questionText}</p>
+    </div>
+  );
 }
 
 export default AskBox;

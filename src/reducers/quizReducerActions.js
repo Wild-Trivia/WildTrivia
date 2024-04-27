@@ -6,3 +6,4 @@ export const WRONG = "WRONG";
 export const NEXT_QUESTION = "NEXT_QUESTION";
 export const TIMER_ONGOING = "TIMER_ONGOING";
 export const SET_TIMERID = "SET_TIMERID";
+export const TOGGLE_QUIT_BUTTON = "TOGGLE_QUIT_BUTTON";
