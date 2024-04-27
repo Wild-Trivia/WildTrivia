@@ -14,6 +14,7 @@ function QuestionCard({
   clickWrong,
   answers,
 }) {
+  
   const borderStyle = () => {
     if (questionTiming === "Ending") {
       switch (questionStatus) {

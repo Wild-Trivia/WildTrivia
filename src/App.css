@@ -5,14 +5,18 @@
 }
 
 #root {
-  width: 400px;
-  height: 700px;
+  width: 360px;
+  height: 760px;
+  display: flex;
   background-color: cyan;
 }
 
+/* QUIZ PAGE LAYOUT
+   ---------------- 
+   ---------------- */
+
 #quiz-page-container {
-  width: 100%;
-  height: 100%;
+  position: relative;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -22,16 +26,19 @@
   background-color: white;
 }
 
+/* QUIZ PAGE HEADER LAYOUT
+   ----------------------- */
+
 #quiz-info-container {
   flex: 1;
-  background-color: white;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 }
+
+/* QUIT BUTTON LAYOUT
+   ------------------ */
 
 #quit-button {
   width: 60px;
@@ -40,31 +47,97 @@
   border-radius: 50px;
   background-color: rgba(123, 89, 218, 0.5);
   color: #fff;
-  align-content: center;
-  text-align: center;
-  /* -webkit-text-stroke: 1px #0d0d0d; */
   font-family: "Audiowide", sans-serif;
   font-size: 28px;
 }
 
+/* QUIT CONFIRM WINDOW LAYOUT
+   -------------------------- */
+
+#quit-confirm-window {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 1rem;
+  width: 90%;
+  height: 90%;
+}
+
+#confirm-text {
+  flex: 2;
+  width: 80%;
+  border-radius: 1rem;
+  align-content: center;
+  font-family: "Autour One", system-ui;
+  font-size: 1.5rem;
+  color: rgba(123, 89, 218, 0.7);
+}
+
+#confirm-buttons {
+  flex: 1;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  border-radius: 1.5rem;
+}
+
+#yes,
+#no {
+  border-radius: 1.5rem;
+  width: 3.5rem;
+  height: 2rem;
+  color: rgba(123, 89, 218, 0.7);
+  align-content: center;
+  text-align: center;
+  font-family: "Livvic", sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+#yes {
+  background-color: rgba(160, 249, 146, 0.7);
+}
+
+#no {
+  background-color: rgba(232, 101, 101, 0.7);
+}
+
+/* QUIZ TIMER LAYOUT
+   ----------------- */
+
 #quiz-timer {
+  position: relative;
   width: 60px;
   height: 60px;
   border: solid 2px rgba(123, 89, 218, 0.5);
   border-radius: 50px;
   background-color: rgba(123, 89, 218, 0.5);
-  color: #fff;
   align-content: center;
   text-align: center;
+}
+
+#timer-text {
+  display: inline;
+  background-color: rgba(123, 89, 218, 0);
+  font-size: 1.5rem;
+  color: #fff;
   font-family: "Livvic", sans-serif;
-  font-size: 22px;
   font-weight: bold;
 }
 
 #hourglass {
   position: absolute;
+  top: 10px;
+  left: 45px;
   background-color: #ffffff00;
 }
+
+/* SCORE BOARD LAYOUT
+   ------------------ */
 
 #score-board {
   display: flex;
@@ -73,21 +146,24 @@
 
 #score-text {
   font-family: "Livvic", sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: rgba(123, 89, 218, 0.7);
 }
 
 #score-number {
-  padding: 5px 24px;
-  border-radius: 15px;
+  padding: 0.25rem 1.5rem;
+  border-radius: 1rem;
   border: solid 1px rgba(123, 89, 218, 0.7);
   background-color: rgba(123, 89, 218, 0.7);
   font-family: "Livvic", sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #fff;
 }
+
+/* QUESTION CARD LAYOUT
+   -------------------- */
 
 #question-card {
   flex: 6;
@@ -96,7 +172,7 @@
   text-align: center;
   background-color: rgba(215, 204, 248, 0.7);
   box-shadow: 1px 1px 4px 1px rgba(123, 123, 123, 0.7);
-  border-radius: 20px;
+  border-radius: 1.25rem;
   display: flex;
   flex-direction: column;
 }
@@ -121,7 +197,7 @@
   background-color: rgba(215, 204, 248, 0);
   text-align: start;
   font-family: "Livvic", sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   color: rgba(123, 89, 218, 0.9);
 }
@@ -130,27 +206,37 @@
   flex: 3;
   background-color: rgba(215, 204, 248, 0);
   text-align: end;
-  -webkit-text-stroke: 0.4px #fff;
   font-family: "Livvic", sans-serif;
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: bold;
 }
 
 #ask-box {
+  position: relative;
   flex: 2;
-  width: 85%;
-  margin-bottom: 30px;
+  width: 90%;
+  margin-bottom: 2rem;
   align-content: center;
-  text-align: center;
-  font-family: "Autour One", sans-serif;
-  font-size: 20px;
-  letter-spacing: 0.44px;
   color: #fff;
-  border-radius: 20px;
+  border-radius: 1rem;
   box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.25);
   border: solid 3px rgba(179, 179, 179, 0.7);
   background-color: rgba(123, 89, 218, 0.7);
 }
+
+#question-text {
+  width: 90%;
+  height: 90%;
+  align-content: center;
+  text-align: center;
+  font-family: "Autour One", sans-serif;
+  font-size: 1.25rem;
+  color: #fff;
+  background-color: rgba(123, 89, 218, 0);
+}
+
+/* QUIZ ANSWERS LAYOUT
+   ------------------- */
 
 #answer-zone {
   flex: 2.5;
@@ -159,18 +245,16 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 15px;
+  gap: 1rem;
 }
 
 .answer-box {
   width: 100%;
   height: 100%;
-  align-content: center;
-  text-align: center;
   font-family: "Autour One", system-ui;
-  font-size: 16px;
+  font-size: 1rem;
   color: rgba(123, 89, 218, 0.7);
-  border-radius: 15px;
+  border-radius: 1rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
 }
 

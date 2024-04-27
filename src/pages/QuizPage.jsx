@@ -1,6 +1,7 @@
 import QuitButton from "../components/QuitButton";
 import ScoreBoard from "../components/ScoreBoard";
 import QuizTimer from "../components/QuizTimer";
+import QuitConfirmWindow from "../components/QuitConfirmWindow";
 import QuestionCard from "../components/QuestionCard";
 import data from "../assets/randomVGQuiz.json";
 import quizReducer from "../reducers/quizReducer";
@@ -14,18 +15,24 @@ import {
   NEXT_QUESTION,
   TIMER_ONGOING,
   SET_TIMERID,
+  TOGGLE_QUIT_BUTTON,
 } from "../reducers/quizReducerActions";
+
+const quizTimer = 15;
+const quizData = data;
 
 function QuizPage() {
   const initialQuizState = {
-    data: data,
-    length: data.length,
+    data: quizData,
+    length: quizData.length,
     currentQuestionNumber: 1,
     totalScore: 0,
     questionScore: 0,
-    timer: 15,
+    timer: quizTimer,
     timerID: 1,
-    timeRemaining: 15,
+    timeRemaining: quizTimer,
+    isQuitPushed: false,
+    isFinished: false,
     answers: [],
     currentQuestion: {
       status: "Pending",
@@ -52,9 +59,9 @@ function QuizPage() {
         isCorrect: true,
       },
     },
-  }
+  };
 
-  const [quizState, dispatch] = useReducer(quizReducer, initialQuizState)
+  const [quizState, dispatch] = useReducer(quizReducer, initialQuizState);
 
   function clickCorrect() {
     dispatch({ type: CORRECT });
@@ -66,22 +73,26 @@ function QuizPage() {
     clearInterval(quizState.timerID);
   }
 
+  function handleQuitButton() {
+    dispatch({ type: TOGGLE_QUIT_BUTTON });
+  }
+
   useEffect(() => {
     dispatch({ type: QUESTION_SETUP });
   }, [quizState.currentQuestionNumber]);
 
   useEffect(() => {
     dispatch({ type: TIMER_RESET_SHUFFLE_ANSWERS });
-    }, [quizState.currentQuestion.text]);
+  }, [quizState.currentQuestion.text]);
 
   useEffect(() => {
-    switch(quizState.currentQuestion.timing) {
+    switch (quizState.currentQuestion.timing) {
       case "Ongoing": {
         const timer1 = setInterval(() => {
           dispatch({ type: TIMER_ONGOING });
-               }, 1000);
-               dispatch({ type: SET_TIMERID, payload: timer1 });
-               return () => {
+        }, 1000);
+        dispatch({ type: SET_TIMERID, payload: timer1 });
+        return () => {
           clearInterval(timer1);
         };
       }
@@ -108,10 +119,16 @@ function QuizPage() {
   return (
     <div id="quiz-page-container">
       <div id="quiz-info-container">
-        <QuitButton />
+        <QuitButton
+          isQuitPushed={quizState.isQuitPushed}
+          handleQuitButton={handleQuitButton}
+        />
         <ScoreBoard score={quizState.totalScore} />
         <QuizTimer timeRemaining={quizState.timeRemaining} />
       </div>
+      {quizState.isQuitPushed && (
+        <QuitConfirmWindow backOption={handleQuitButton} />
+      )}
       <QuestionCard
         quizLength={quizState.length}
         currentQuestionNumber={quizState.currentQuestionNumber}
