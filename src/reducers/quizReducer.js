@@ -119,6 +119,6 @@ export default function quizReducer(state, action) {
         return { ...state, timeRemaining: state.timeRemaining - 1 };
     }
     case SET_TIMERID:
-      return { ...state, timerID: action.payload }
+      return { ...state, timerID: action.payload };
   }
 }

@@ -16,16 +16,20 @@ import {
   SET_TIMERID,
 } from "../reducers/quizReducerActions";
 
+const quizTimer = 15;
+const quizData = data
+
 function QuizPage() {
   const initialQuizState = {
-    data: data,
-    length: data.length,
+    data: quizData,
+    length: quizData.length,
     currentQuestionNumber: 1,
     totalScore: 0,
     questionScore: 0,
-    timer: 15,
+    timer: quizTimer,
     timerID: 1,
-    timeRemaining: 15,
+    timeRemaining: quizTimer,
+    isFinished: false,
     answers: [],
     currentQuestion: {
       status: "Pending",
