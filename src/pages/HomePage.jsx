@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import QuickQuizButton from "../components/QuickQuizButton";
 import Challenges from "../components/Challenges";
 
@@ -8,40 +7,67 @@ const quickQuizList = [
     quizTheme: "Video Games",
     quizDifficulty: "Difficulty: Medium",
     quizLength: "Questions: 10",
+    color: "#e32636",
   },
   {
     id: 2,
     quizTheme: "Name",
     quizDifficulty: "Difficulty",
     quizLength: "Questions",
+    color: "#2e8b57",
   },
   {
     id: 3,
     quizTheme: "Name",
     quizDifficulty: "Difficulty",
     quizLength: "Questions",
+    color: "#ff4500",
   },
   {
     id: 4,
     quizTheme: "Name",
     quizDifficulty: "Difficulty",
     quizLength: "Questions",
+    color: "#00688b",
   },
   {
     id: 5,
     quizTheme: "Name",
     quizDifficulty: "Difficulty",
     quizLength: "Questions",
+    color: "#4169e1",
   },
   {
     id: 6,
     quizTheme: "Name",
     quizDifficulty: "Difficulty",
     quizLength: "Questions",
+    color: "#ca3291",
   },
 ];
 
-const challengeList = ["Fast Mode", "Survival", "Daily", "Random"];
+const challengeList = [
+  {
+    id: 1,
+    challengeName: "Fast Mode",
+    color: "#00688b",
+  },
+  {
+    id: 2,
+    challengeName: "Survival",
+    color: "#ca3291",
+  },
+  {
+    id: 3,
+    challengeName: "Daily",
+    color: "#2e8b57",
+  },
+  {
+    id: 4,
+    challengeName: "Random",
+    color: "#dd4d4d",
+  },
+];
 
 function HomePage() {
   return (
@@ -63,6 +89,7 @@ function HomePage() {
                 quizTheme={quiz.quizTheme}
                 quizDifficulty={quiz.quizDifficulty}
                 quizLength={quiz.quizLength}
+                color={quiz.color}
               />
             );
           })}
@@ -75,8 +102,14 @@ function HomePage() {
         </div>
 
         <div id="challenges-box">
-          {challengeList.map((type) => {
-            return <Challenges key={type} challengeType={type} />;
+          {challengeList.map((challenge) => {
+            return (
+              <Challenges
+                key={challenge.id}
+                challengeName={challenge.challengeName}
+                color={challenge.color}
+              />
+            );
           })}
         </div>
       </div>
@@ -85,10 +118,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-{
-  /* <Link to="/">Home</Link> */
-}
-{
-  /* <Link to="/quiz">Quiz</Link> */
-}

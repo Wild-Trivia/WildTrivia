@@ -26,7 +26,7 @@
    ----------------------- */
 
 #home-page-header {
-  flex: 1;
+  flex: 1.25;
   width: 90%;
   display: flex;
   align-items: center;
@@ -78,17 +78,73 @@
 
 #quick-quiz-box {
   flex: 5;
-  width: 90%;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.quick-quiz-button {
+  width: 43%;
+  height: 29%;
+  margin: 2% 3%;
+  border: none;
+  border-radius: 1rem;
+  color: #fff;
+  font-family: "Livvic", sans-serif;
+  text-align: left;
+}
+
+.theme {
+  font-size: 1.05rem;
+  margin-left: 8px;
+}
+
+.settings {
+  margin-top: 3px;
+  font-size: 0.85rem;
+  margin-left: 12px;
 }
 
 #quiz-creation-container {
   flex: 1;
   width: 90%;
+  align-content: center;
+  text-align: center;
+}
+
+#quiz-creation-button {
+  background-color: #fff;
+  color: #7b59da;
+  font-family: "Livvic", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 1px 1px 4px 1px rgba(123, 123, 123, 0.7);
+  padding: 0.35rem 2.8rem;
+  transform: translateY(30%);
 }
 
 #challenges-box {
   flex: 3.5;
-  width: 90%;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5%;
+}
+
+.challenges-button {
+  width: 43%;
+  height: 43%;
+  margin: 2% 3%;
+  border: none;
+  border-radius: 1rem;
+  color: #fff;
+  font-family: "Livvic", sans-serif;
+}
+
+.mode {
+  font-size: 1.1rem;
 }
 
 /* QUIZ PAGE LAYOUT

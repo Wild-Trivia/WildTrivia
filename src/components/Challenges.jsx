@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 
-function Challenges({ challengeType }) {
+function Challenges({ challengeName, color }) {
   return (
-    <button>
-      <p>{challengeType}</p>
+    <button style={{ backgroundColor: color }} className="challenges-button">
+      <p style={{ backgroundColor: color }} className="mode">
+        {challengeName}
+      </p>
     </button>
   );
 }
@@ -11,5 +13,6 @@ function Challenges({ challengeType }) {
 export default Challenges;
 
 Challenges.propTypes = {
-  challengeType: PropTypes.string.isRequired,
+  challengeName: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 };
