@@ -5,8 +5,8 @@ const quickQuizList = [
   {
     id: 1,
     quizTheme: "Video Games",
-    quizDifficulty: "Difficulty: Medium",
-    quizLength: "Questions: 10",
+    quizDifficulty: "Medium",
+    quizLength: "10 Questions",
     color: "#e32636",
   },
   {

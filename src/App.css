@@ -92,15 +92,20 @@
   color: #fff;
   font-family: "Livvic", sans-serif;
   text-align: left;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .theme {
   font-size: 1.05rem;
-  margin-left: 8px;
+  margin-top: 0.3rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
 }
 
 .settings {
-  margin-top: 3px;
+  margin-top: 0.2rem;
   font-size: 0.85rem;
   margin-left: 12px;
 }
