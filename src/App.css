@@ -20,6 +20,7 @@
   background-color: white;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 /* HOME PAGE HEADER LAYOUT
@@ -46,6 +47,37 @@
   font-weight: bold;
 }
 
+#profile-button {
+  border: none;
+  background-color: white;
+}
+
+/* HOME PAGE PROFILE MENU LAYOUT
+   ----------------------------- */
+
+#profile-menu-window {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  transition: transform ease-in-out 1s;
+  transform: translateY(45%);
+  background-color: #669fa7;
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-menu-window p {
+  color: #fff;
+  background-color: #669fa7;
+}
+
+#profile-void {
+  background-color: #669fa7;
+  padding-bottom: 200%;
+}
+
 /* HOME PAGE QUIZ SELECTION LAYOUT
    ------------------------------- */
 
@@ -55,6 +87,8 @@
   border-radius: 1rem 1rem 0 0;
   display: flex;
   flex-direction: column;
+  transition: transform ease-in-out 1s;
+  z-index: 2;
 }
 
 #quiz-select-container * {

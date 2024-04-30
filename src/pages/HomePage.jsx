@@ -1,5 +1,6 @@
 import QuickQuizButton from "../components/QuickQuizButton";
 import Challenges from "../components/Challenges";
+import { useState } from "react";
 
 const quickQuizList = [
   {
@@ -70,13 +71,51 @@ const challengeList = [
 ];
 
 function HomePage() {
+  const [profileState, setProfileState] = useState({
+    profileName: "Jean",
+    isMenuButtonPushed: false,
+  });
+
+  const profileMenuToggle = () => {
+    setProfileState((value) => {
+      return {
+        ...value,
+        isMenuButtonPushed: !value.isMenuButtonPushed,
+      };
+    });
+  };
+
+  const animationHandlerQuiz = () => {
+    if (profileState.isMenuButtonPushed) {
+      return { transform: "translateY(39%)" };
+    }
+  };
+
+  const animationHandlerMenu = () => {
+    if (profileState.isMenuButtonPushed) {
+      return { transform: "translateY(15%)" };
+    }
+  };
+
   return (
     <div id="home-page-container">
       <div id="home-page-header">
-        <p id="greeting">Hello, Jean!</p>
-        <img src="src/assets/user-icon.png" />
+        <p id="greeting">Hello, {profileState.profileName}!</p>
+        <button id="profile-button" onClick={profileMenuToggle}>
+          <img src="src/assets/user-icon.png" />
+        </button>
       </div>
-      <div id="quiz-select-container">
+      {/* {profileState.isMenuButtonPushed && ( */}
+      <div id="profile-menu-window" style={animationHandlerMenu()}>
+        <p>Bonjour</p>
+        <p>Bonjour</p>
+        <p>Bonjour</p>
+        <p>Bonjour</p>
+        <p>Bonjour</p>
+        <p id="profile-void">Bonjour</p>
+      </div>
+      {/* )} */}
+      <div id="quiz-select-container" style={animationHandlerQuiz()}>
         <div className="title-box">
           <p className="quiz-select-title">Quick Quiz</p>
         </div>
