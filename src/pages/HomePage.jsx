@@ -1,6 +1,7 @@
 import QuickQuizButton from "../components/QuickQuizButton";
 import Challenges from "../components/Challenges";
 import { useState } from "react";
+import ProfileMenu from "../components/ProfileMenu";
 
 const quickQuizList = [
   {
@@ -91,12 +92,6 @@ function HomePage() {
     }
   };
 
-  const animationHandlerMenu = () => {
-    if (profileState.isMenuButtonPushed) {
-      return { transform: "translateY(15%)" };
-    }
-  };
-
   return (
     <div id="home-page-container">
       <div id="home-page-header">
@@ -105,21 +100,11 @@ function HomePage() {
           <img src="src/assets/user-icon.png" />
         </button>
       </div>
-      {/* {profileState.isMenuButtonPushed && ( */}
-      <div id="profile-menu-window" style={animationHandlerMenu()}>
-        <p>Bonjour</p>
-        <p>Bonjour</p>
-        <p>Bonjour</p>
-        <p>Bonjour</p>
-        <p>Bonjour</p>
-        <p id="profile-void">Bonjour</p>
-      </div>
-      {/* )} */}
+
       <div id="quiz-select-container" style={animationHandlerQuiz()}>
         <div className="title-box">
           <p className="quiz-select-title">Quick Quiz</p>
         </div>
-
         <div id="quick-quiz-box">
           {quickQuizList.map((quiz) => {
             return (
@@ -152,6 +137,11 @@ function HomePage() {
           })}
         </div>
       </div>
+      <ProfileMenu
+        isMenuButtonPushed={profileState.isMenuButtonPushed}
+        profileName={profileState.profileName}
+        setProfileState={setProfileState}
+      />
     </div>
   );
 }
