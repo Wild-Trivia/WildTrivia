@@ -123,7 +123,12 @@ function QuizPage() {
           isQuitPushed={quizState.isQuitPushed}
           handleQuitButton={handleQuitButton}
         />
-        <ScoreBoard score={quizState.totalScore} />
+        <ScoreBoard
+          totalScore={quizState.totalScore}
+          questionScore={quizState.questionScore}
+          questionStatus={quizState.currentQuestion.status}
+          questionTiming={quizState.currentQuestion.timing}
+        />
         <QuizTimer timeRemaining={quizState.timeRemaining} />
       </div>
       {quizState.isQuitPushed && (
