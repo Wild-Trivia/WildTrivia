@@ -273,8 +273,18 @@
 #hourglass {
   position: absolute;
   top: 10px;
-  left: 45px;
+  left: 48px;
   background-color: #ffffff00;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* SCORE BOARD LAYOUT
