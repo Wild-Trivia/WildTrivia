@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "challengeName": "Fast Mode",
+    "color": "#00688b"
+  },
+  {
+    "id": 2,
+    "challengeName": "Survival",
+    "color": "#ca3291"
+  },
+  {
+    "id": 3,
+    "challengeName": "Daily",
+    "color": "#2e8b57"
+  },
+  {
+    "id": 4,
+    "challengeName": "Random",
+    "color": "#dd4d4d"
+  }
+]

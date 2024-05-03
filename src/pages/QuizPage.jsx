@@ -3,8 +3,8 @@ import ScoreBoard from "../components/ScoreBoard";
 import QuizTimer from "../components/QuizTimer";
 import QuitConfirmWindow from "../components/QuitConfirmWindow";
 import QuestionCard from "../components/QuestionCard";
-import data from "../assets/randomVGQuiz.json";
 import quizReducer from "../reducers/quizReducer";
+import { useQuizData } from "../contexts/useQuizData";
 import { useEffect, useReducer } from "react";
 import {
   TIMER_RESET_SHUFFLE_ANSWERS,
@@ -17,20 +17,22 @@ import {
   SET_TIMERID,
   TOGGLE_QUIT_BUTTON,
 } from "../reducers/quizReducerActions";
-
-const quizTimer = 15;
-const quizData = data;
+import LivesCount from "../components/LivesCount";
 
 function QuizPage() {
+  const { quizData } = useQuizData();
+
   const initialQuizState = {
-    data: quizData,
-    length: quizData.length,
+    data: quizData.questions,
+    length: quizData.questions.length,
     currentQuestionNumber: 1,
     totalScore: 0,
     questionScore: 0,
-    timer: quizTimer,
+    timer: quizData.quizTimer,
     timerID: 1,
-    timeRemaining: quizTimer,
+    timeRemaining: quizData.quizTimer,
+    livesRemaining: quizData.lives,
+    lifeLoss: 0,
     isQuitPushed: false,
     isFinished: false,
     answers: [],
@@ -139,7 +141,11 @@ function QuizPage() {
         clickCorrect={clickCorrect}
         clickWrong={clickWrong}
       />
-      <div id="void-bottom"></div>
+      <div id="lives-remaining-container">
+        {quizData.isSurvivalOn && (
+          <LivesCount livesRemaining={quizState.livesRemaining} />
+        )}
+      </div>
     </div>
   );
 }
