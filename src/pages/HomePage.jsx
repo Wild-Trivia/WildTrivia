@@ -2,7 +2,7 @@ import QuickQuizButton from "../components/QuickQuizButton";
 import Challenges from "../components/Challenges";
 import ChallengeMenu from "../components/ChallengeMenu";
 import quickQuizList from "../assets/qqlist.json";
-import challengeList from "../assets/challist.json";
+import challengeList from "../assets/challengeList.json";
 
 function HomePage() {
   return (

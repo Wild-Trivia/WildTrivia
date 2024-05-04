@@ -32,7 +32,7 @@ export default function ChallengeMenu() {
   const textContent = () => {
     switch (quizData.quizMode) {
       case "Survival":
-        return "Try to fight your way in a rain of questions! Here, you start the game with three lives, and the quiz goes on until you're out!";
+        return "Make your way in a rain of forty questions! Here, you start the game with three lives, and the quiz goes on until you're out!";
       case "Fast Mode":
         return "Be sharper than ever, cause with Fast Mode, you'll have only 5 seconds to answer each of the twenty questions you'll face!";
       case "Daily":
@@ -42,10 +42,23 @@ export default function ChallengeMenu() {
     }
   };
 
+  const linkRoute = () => {
+    switch (quizData.quizMode) {
+      case "Survival":
+        return "/challenges/survival";
+      case "Fast Mode":
+        return "/challenges/fastmode";
+      case "Daily":
+        return "/challenges/daily";
+      case "Random":
+        return "/challenges/random";
+    }
+  };
+
   return (
     <div id="challenge-menu-container" style={challengeMenuAnimation()}>
       <div id="grey-void" onClick={handleVoidClick} />
-      <div id="challenge-menu" onClick={handleVoidClick}>
+      <div id="challenge-menu">
         <div id="challenge-image-container">
           <img src={imageSource()} width="100%" />
         </div>
@@ -54,7 +67,11 @@ export default function ChallengeMenu() {
           <p id="challenge-text-content">{textContent()}</p>
         </div>
         <div id="challenge-launch-container">
-          <Link to="/quiz" id="challenge-launch-button">
+          <Link
+            to={linkRoute()}
+            id="challenge-launch-button"
+            onClick={handleVoidClick}
+          >
             Start the challenge
           </Link>
         </div>

@@ -5,6 +5,8 @@ import App from "./App.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import QuizDataProvider from "./contexts/QuizDataProvider.jsx";
+import dailyData from "./assets/randomVGQuiz.json";
+import { challengeFetcher } from "./assets/functions.js";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,26 @@ const router = createBrowserRouter([
       {
         path: "/quiz",
         element: <QuizPage />,
+      },
+      {
+        path: "/challenges/fastmode",
+        element: <QuizPage />,
+        loader: () => challengeFetcher(20),
+      },
+      {
+        path: "/challenges/survival",
+        element: <QuizPage />,
+        loader: () => challengeFetcher(40),
+      },
+      {
+        path: "/challenges/daily",
+        element: <QuizPage />,
+        loader: () => dailyData,
+      },
+      {
+        path: "/challenges/random",
+        element: <QuizPage />,
+        loader: () => challengeFetcher(15),
       },
     ],
   },

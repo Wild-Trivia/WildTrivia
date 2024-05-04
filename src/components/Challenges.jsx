@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { useQuizData } from "../contexts/useQuizData";
-import dailyData from "../assets/randomVGQuiz.json";
 
 function Challenges({ challengeName, color }) {
   const { setQuizData } = useQuizData();
@@ -16,8 +15,6 @@ function Challenges({ challengeName, color }) {
             quizTimer: 15,
             isSurvivalOn: true,
             lives: 3,
-            questionTotal: 50,
-            questions: dailyData,
           };
         case "Fast Mode":
           return {
@@ -27,8 +24,6 @@ function Challenges({ challengeName, color }) {
             quizTimer: 5,
             isSurvivalOn: false,
             lives: 500,
-            questionTotal: 20,
-            questions: dailyData,
           };
         case "Daily":
           return {
@@ -38,8 +33,6 @@ function Challenges({ challengeName, color }) {
             quizTimer: 15,
             isSurvivalOn: false,
             lives: 500,
-            questionTotal: 10,
-            questions: dailyData,
           };
         case "Random":
           return {
@@ -49,8 +42,6 @@ function Challenges({ challengeName, color }) {
             quizTimer: 15,
             isSurvivalOn: false,
             lives: 500,
-            questionTotal: 15,
-            questions: dailyData,
           };
       }
     });

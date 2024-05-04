@@ -10,7 +10,6 @@ export default function QuizDataProvider({ children }) {
     quizTimer: 15,
     isSurvivalOn: false,
     lives: 500,
-    questions: [],
   });
 
   return (

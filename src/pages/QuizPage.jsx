@@ -18,13 +18,15 @@ import {
   TOGGLE_QUIT_BUTTON,
 } from "../reducers/quizReducerActions";
 import LivesCount from "../components/LivesCount";
+import { useLoaderData } from "react-router-dom";
 
 function QuizPage() {
   const { quizData } = useQuizData();
+  const dataFetched = useLoaderData();
 
   const initialQuizState = {
-    data: quizData.questions,
-    length: quizData.questions.length,
+    data: dataFetched,
+    length: dataFetched.length,
     currentQuestionNumber: 1,
     totalScore: 0,
     questionScore: 0,
@@ -32,7 +34,7 @@ function QuizPage() {
     timerID: 1,
     timeRemaining: quizData.quizTimer,
     livesRemaining: quizData.lives,
-    lifeLoss: 0,
+    lifeManagement: 0,
     isQuitPushed: false,
     isFinished: false,
     answers: [],

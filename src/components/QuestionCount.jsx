@@ -1,18 +1,11 @@
 import PropTypes from "prop-types";
-import { useQuizData } from "../contexts/useQuizData";
 
 function QuestionCount({ currentQuestionNumber, quizLength }) {
-  const { quizData } = useQuizData();
-
-  const questionCountDisplay = () => {
-    if (quizData.isSurvivalOn) {
-      return `${currentQuestionNumber}/???`;
-    } else {
-      return `${currentQuestionNumber}/${quizLength}`;
-    }
-  };
-
-  return <div id="question-count">{questionCountDisplay()}</div>;
+  return (
+    <div id="question-count">
+      {currentQuestionNumber}/{quizLength}
+    </div>
+  );
 }
 
 export default QuestionCount;
