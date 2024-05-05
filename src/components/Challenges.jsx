@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
 import { useQuizData } from "../contexts/useQuizData";
 
-function Challenges({ challengeName, color }) {
+function Challenges({ challenge }) {
   const { setQuizData } = useQuizData();
 
   const handleChallengeClick = () => {
     setQuizData((value) => {
-      switch (challengeName) {
+      switch (challenge.challengeName) {
         case "Survival":
           return {
             ...value,
             isChallengeButtonPushed: true,
-            quizMode: challengeName,
+            quizMode: challenge,
             quizTimer: 15,
             isSurvivalOn: true,
             lives: 3,
@@ -20,7 +20,7 @@ function Challenges({ challengeName, color }) {
           return {
             ...value,
             isChallengeButtonPushed: true,
-            quizMode: challengeName,
+            quizMode: challenge,
             quizTimer: 5,
             isSurvivalOn: false,
             lives: 500,
@@ -29,7 +29,7 @@ function Challenges({ challengeName, color }) {
           return {
             ...value,
             isChallengeButtonPushed: true,
-            quizMode: challengeName,
+            quizMode: challenge,
             quizTimer: 15,
             isSurvivalOn: false,
             lives: 500,
@@ -38,7 +38,7 @@ function Challenges({ challengeName, color }) {
           return {
             ...value,
             isChallengeButtonPushed: true,
-            quizMode: challengeName,
+            quizMode: challenge,
             quizTimer: 15,
             isSurvivalOn: false,
             lives: 500,
@@ -50,11 +50,11 @@ function Challenges({ challengeName, color }) {
   return (
     <button
       onClick={handleChallengeClick}
-      style={{ backgroundColor: color }}
+      style={{ backgroundColor: challenge.color }}
       className="challenges-button"
     >
-      <p style={{ backgroundColor: color }} className="mode">
-        {challengeName}
+      <p style={{ backgroundColor: challenge.color }} className="mode">
+        {challenge.challengeName}
       </p>
     </button>
   );
@@ -63,6 +63,12 @@ function Challenges({ challengeName, color }) {
 export default Challenges;
 
 Challenges.propTypes = {
-  challengeName: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  challenge: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    challengeName: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    route: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+  }).isRequired,
 };

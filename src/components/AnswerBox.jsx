@@ -119,7 +119,7 @@ function AnswerBox({
       onClick={handleClick}
       disabled={questionStatus !== "Pending"}
     >
-      {answer.text}
+      <p className="answer-text">{answer.text}</p>
     </button>
   );
 }

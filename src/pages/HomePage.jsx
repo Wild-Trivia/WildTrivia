@@ -39,13 +39,7 @@ function HomePage() {
 
           <div id="challenges-box">
             {challengeList.map((challenge) => {
-              return (
-                <Challenges
-                  key={challenge.id}
-                  challengeName={challenge.challengeName}
-                  color={challenge.color}
-                />
-              );
+              return <Challenges key={challenge.id} challenge={challenge} />;
             })}
           </div>
         </div>

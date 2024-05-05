@@ -17,6 +17,7 @@
 
 #home-page-container {
   position: relative;
+  width: 100%;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -52,6 +53,7 @@
 
 #quiz-select-container {
   flex: 7;
+  width: 100%;
   background-color: #7b59da;
   border-radius: 1rem 1rem 0 0;
   display: flex;
@@ -159,13 +161,14 @@
 
 #quiz-page-container {
   position: relative;
+  width: 100%;
   background-color: white;
   display: flex;
   flex-direction: column;
 }
 
 #quiz-page-container * {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 /* QUIZ PAGE HEADER LAYOUT
@@ -350,7 +353,8 @@
 #ask-box {
   position: relative;
   flex: 2;
-  width: 90%;
+  min-width: 90%;
+  max-width: 90%;
   margin-bottom: 2rem;
   align-content: center;
   color: #fff;
@@ -361,12 +365,14 @@
 }
 
 #question-text {
-  width: 90%;
+  min-width: 90%;
+  max-width: 90%;
   height: 90%;
   align-content: center;
   text-align: center;
   font-family: "Autour One", sans-serif;
   font-size: 1.1rem;
+  overflow-wrap: break-word;
   color: #fff;
   background-color: rgba(123, 89, 218, 0);
 }
@@ -385,13 +391,20 @@
 }
 
 .answer-box {
-  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   height: 100%;
-  font-family: "Autour One", system-ui;
-  font-size: 1rem;
-  color: rgba(123, 89, 218, 0.7);
   border-radius: 1rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.answer-text {
+  min-width: 95%;
+  max-width: 95%;
+  font-family: "Autour One", system-ui;
+  font-size: 1rem;
+  overflow-wrap: break-word;
+  color: rgba(123, 89, 218, 0.7);
 }
 
 #void-foot {
