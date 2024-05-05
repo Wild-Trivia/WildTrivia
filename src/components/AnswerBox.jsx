@@ -64,7 +64,7 @@ function AnswerBox({
     ) {
       setAnswerStatus("ending-timeup-unselected-correct");
     }
-  }, [questionTiming]);
+  }, [answer.isCorrect, answerStatus, questionTiming]);
 
   const handleClick = () => {
     if (answer.isCorrect) {

@@ -17,10 +17,6 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/quiz",
-        element: <QuizPage />,
-      },
-      {
         path: "/challenges/fastmode",
         element: <QuizPage />,
         loader: () => challengeFetcher(20),
