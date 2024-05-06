@@ -17,6 +17,7 @@ import {
   SET_TIMERID,
   TOGGLE_QUIT_BUTTON,
 } from "../reducers/quizReducerActions";
+import { useProfile } from "../contexts/useProfile";
 
 const quizTimer = 15;
 const quizData = data;
@@ -62,6 +63,7 @@ function QuizPage() {
   };
 
   const [quizState, dispatch] = useReducer(quizReducer, initialQuizState);
+  const { profile } = useProfile();
 
   function clickCorrect() {
     dispatch({ type: CORRECT });
@@ -116,8 +118,19 @@ function QuizPage() {
     }
   }, [quizState.currentQuestion.timing]);
 
+  const quizPageStyle = () => {
+    switch (profile.theme) {
+      case "Classic":
+        return { backgroundImage: "none" };
+      case "Starry Sky":
+        return { backgroundImage: "url('src/assets/starry-sky.jpg')" };
+      case "Night Jungle":
+        return { backgroundImage: "url('src/assets/night-jungle.jpg')" };
+    }
+  };
+
   return (
-    <div id="quiz-page-container">
+    <div id="quiz-page-container" style={quizPageStyle()}>
       <div id="quiz-info-container">
         <QuitButton
           isQuitPushed={quizState.isQuitPushed}

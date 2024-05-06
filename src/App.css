@@ -18,8 +18,10 @@
 #home-page-container {
   position: relative;
   background-color: white;
+  background-size: cover;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 /* HOME PAGE HEADER LAYOUT
@@ -29,9 +31,10 @@
   flex: 1.25;
   width: 90%;
   display: flex;
+  z-index: 2;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 #home-page-header * {
@@ -39,11 +42,142 @@
 }
 
 #greeting {
-  background-color: white;
-  color: black;
+  background-color: rgba(255, 255, 255, 0);
   font-family: "Livvic", sans-serif;
   font-size: 1.75rem;
   font-weight: bold;
+}
+
+#profile-button {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#profile-button img {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+/* HOME PAGE PROFILE MENU LAYOUT
+   ----------------------------- */
+
+#profile-menu-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, 50%);
+  transition: transform ease-in-out 1s;
+  background-color: #ffffff00;
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-void {
+  flex: 1.25;
+  background-color: #ffffff00;
+}
+
+#profile-menu-window {
+  flex: 7;
+  color: #fff;
+  width: 100%;
+  border-radius: 1rem 1rem 0 0;
+}
+
+#profile-menu-window * {
+  background-color: #669fa700;
+}
+
+#profile-menu-window p {
+  display: flex;
+  width: fit-content;
+}
+
+#profile-menu-title {
+  display: flex;
+  width: fit-content;
+  margin: 5% auto;
+  -webkit-text-stroke: #4e4e4e thin;
+  font-family: "Livvic", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#user-name-change {
+  display: flex;
+  width: 90%;
+  margin: 2% auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#user-name-change label {
+  margin: 0;
+  font-family: "Livvic", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#user-name-change input {
+  margin: 0;
+  background-color: #7b59da;
+  border-radius: 1rem;
+  padding: 5px;
+  text-align: center;
+  color: #fff;
+  font-family: "Livvic", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+}
+
+#theme-change {
+  display: flex;
+  width: 90%;
+  margin: 5% auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#theme-change label {
+  margin: 0;
+  font-family: "Livvic", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#theme-change select {
+  margin: 0;
+  width: 13.5rem;
+  border-radius: 1rem;
+  padding: 5px;
+  text-align: center;
+  color: #fff;
+  font-family: "Livvic", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+}
+
+#menu-closing {
+  display: flex;
+  width: 90%;
+  margin: 16% auto 5% auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-closing-button {
+  background-color: #fff;
+  font-family: "Livvic", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 1px 1px 4px 1px rgba(123, 123, 123, 0.7);
+  padding: 0.35rem 2rem;
 }
 
 /* HOME PAGE QUIZ SELECTION LAYOUT
@@ -55,10 +189,12 @@
   border-radius: 1rem 1rem 0 0;
   display: flex;
   flex-direction: column;
+  transition: transform ease-in-out 1s;
+  z-index: 2;
 }
 
 #quiz-select-container * {
-  background-color: #7b59da;
+  background-color: #7b59da00;
 }
 
 .title-box {
@@ -81,6 +217,7 @@
   width: 95%;
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .quick-quiz-button {
@@ -91,7 +228,7 @@
   border-radius: 1rem;
   color: #fff;
   font-family: "Livvic", sans-serif;
-  text-align: left;
+  font-weight: 600;
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -100,14 +237,11 @@
 .theme {
   font-size: 1.05rem;
   margin-top: 0.3rem;
-  margin-left: 0.5rem;
-  border-radius: 1rem;
 }
 
 .settings {
   margin-top: 0.2rem;
   font-size: 0.85rem;
-  margin-left: 12px;
 }
 
 #quiz-creation-container {
@@ -119,7 +253,6 @@
 
 #quiz-creation-button {
   background-color: #fff;
-  color: #7b59da;
   font-family: "Livvic", sans-serif;
   font-size: 1.15rem;
   font-weight: 600;
@@ -146,6 +279,7 @@
   border-radius: 1rem;
   color: #fff;
   font-family: "Livvic", sans-serif;
+  font-weight: 600;
 }
 
 .mode {
@@ -161,10 +295,11 @@
   background-color: white;
   display: flex;
   flex-direction: column;
+  background-size: cover;
 }
 
 #quiz-page-container * {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 /* QUIZ PAGE HEADER LAYOUT
@@ -184,10 +319,9 @@
 #quit-button {
   width: 60px;
   height: 60px;
-  border: solid 2px rgba(123, 89, 218, 0.5);
+  border: solid 2px;
   border-radius: 50px;
-  background-color: rgba(123, 89, 218, 0.5);
-  color: #fff;
+  color: #ffffff;
   font-family: "Audiowide", sans-serif;
   font-size: 28px;
 }
@@ -254,9 +388,8 @@
   position: relative;
   width: 60px;
   height: 60px;
-  border: solid 2px rgba(123, 89, 218, 0.5);
+  border: solid 2px;
   border-radius: 50px;
-  background-color: rgba(123, 89, 218, 0.5);
   align-content: center;
   text-align: center;
 }
@@ -305,12 +438,11 @@
 #score-number {
   padding: 0.25rem 1.5rem;
   border-radius: 1rem;
-  border: solid 1px rgba(123, 89, 218, 0.7);
-  background-color: rgba(123, 89, 218, 0.7);
+  border: solid 1px;
   font-family: "Livvic", sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #fff;
+  color: #ffffff;
 }
 
 /* QUESTION CARD LAYOUT
@@ -350,7 +482,6 @@
   font-family: "Livvic", sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
-  color: rgba(123, 89, 218, 0.9);
 }
 
 #quiz-check-text {
@@ -372,7 +503,6 @@
   border-radius: 1rem;
   box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.25);
   border: solid 3px rgba(179, 179, 179, 0.7);
-  background-color: rgba(123, 89, 218, 0.7);
 }
 
 #question-text {
@@ -404,7 +534,6 @@
   height: 100%;
   font-family: "Autour One", system-ui;
   font-size: 1rem;
-  color: rgba(123, 89, 218, 0.7);
   border-radius: 1rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
 }
