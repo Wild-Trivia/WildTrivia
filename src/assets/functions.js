@@ -11,3 +11,19 @@ export function decodeHTMLEntities(text) {
   textArea.innerHTML = text;
   return textArea.value;
 }
+
+export function challengeFetcher(amount) {
+  let dataFetched = fetch(
+    `https://opentdb.com/api.php?amount=${amount}&type=multiple`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Please wait 5 seconds between two requests.");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data.results;
+    });
+  return dataFetched;
+}

@@ -66,7 +66,7 @@ function AnswerBox({
     ) {
       setAnswerStatus("ending-timeup-unselected-correct");
     }
-  }, [questionTiming]);
+  }, [answer.isCorrect, answerStatus, questionTiming]);
 
   const handleClick = () => {
     if (answer.isCorrect) {
@@ -257,7 +257,7 @@ function AnswerBox({
       onClick={handleClick}
       disabled={questionStatus !== "Pending"}
     >
-      {answer.text}
+      <p className="answer-text">{answer.text}</p>
     </button>
   );
 }

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "quizTheme": "Name",
+    "quizDifficulty": "Difficulty",
+    "quizLength": "Questions",
+    "color": "#e32636"
+  },
+  {
+    "id": 2,
+    "quizTheme": "Name",
+    "quizDifficulty": "Difficulty",
+    "quizLength": "Questions",
+    "color": "#2e8b57"
+  },
+  {
+    "id": 3,
+    "quizTheme": "Name",
+    "quizDifficulty": "Difficulty",
+    "quizLength": "Questions",
+    "color": "#ff4500"
+  },
+  {
+    "id": 4,
+    "quizTheme": "Name",
+    "quizDifficulty": "Difficulty",
+    "quizLength": "Questions",
+    "color": "#00688b"
+  },
+  {
+    "id": 5,
+    "quizTheme": "Name",
+    "quizDifficulty": "Difficulty",
+    "quizLength": "Questions",
+    "color": "#4169e1"
+  },
+  {
+    "id": 6,
+    "quizTheme": "Name",
+    "quizDifficulty": "Difficulty",
+    "quizLength": "Questions",
+    "color": "#ca3291"
+  }
+]

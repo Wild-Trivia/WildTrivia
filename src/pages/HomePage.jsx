@@ -1,77 +1,12 @@
 import QuickQuizButton from "../components/QuickQuizButton";
 import Challenges from "../components/Challenges";
+import ChallengeMenu from "../components/ChallengeMenu";
+import quickQuizList from "../assets/qqlist.json";
+import challengeList from "../assets/challengeList.json";
 import { useProfile } from "../contexts/useProfile";
 import ProfileMenu from "../components/ProfileMenu";
 
-const quickQuizList = [
-  {
-    id: 1,
-    quizTheme: "Video Games",
-    quizDifficulty: "Medium",
-    quizLength: "10 Questions",
-    color: "#e32636",
-  },
-  {
-    id: 2,
-    quizTheme: "Name",
-    quizDifficulty: "Difficulty",
-    quizLength: "Questions",
-    color: "#2e8b57",
-  },
-  {
-    id: 3,
-    quizTheme: "Name",
-    quizDifficulty: "Difficulty",
-    quizLength: "Questions",
-    color: "#ff4500",
-  },
-  {
-    id: 4,
-    quizTheme: "Name",
-    quizDifficulty: "Difficulty",
-    quizLength: "Questions",
-    color: "#00688b",
-  },
-  {
-    id: 5,
-    quizTheme: "Name",
-    quizDifficulty: "Difficulty",
-    quizLength: "Questions",
-    color: "#4169e1",
-  },
-  {
-    id: 6,
-    quizTheme: "Name",
-    quizDifficulty: "Difficulty",
-    quizLength: "Questions",
-    color: "#ca3291",
-  },
-];
-
-const challengeList = [
-  {
-    id: 1,
-    challengeName: "Fast Mode",
-    color: "#00688b",
-  },
-  {
-    id: 2,
-    challengeName: "Survival",
-    color: "#ca3291",
-  },
-  {
-    id: 3,
-    challengeName: "Daily",
-    color: "#2e8b57",
-  },
-  {
-    id: 4,
-    challengeName: "Random",
-    color: "#dd4d4d",
-  },
-];
-
-function HomePage() {
+export default function HomePage() {
   const { profile, setProfile } = useProfile();
 
   const profileMenuToggle = () => {
@@ -163,22 +98,15 @@ function HomePage() {
         <div className="title-box">
           <p className="quiz-select-title">Challenges</p>
         </div>
-
         <div id="challenges-box">
-          {challengeList.map((challenge) => {
-            return (
-              <Challenges
-                key={challenge.id}
-                challengeName={challenge.challengeName}
-                color={challenge.color}
-              />
-            );
-          })}
+            {challengeList.map((challenge) => {
+              return <Challenges key={challenge.id} challenge={challenge} />;
+            })}
         </div>
       </div>
+      <ChallengeMenu />
       <ProfileMenu profileMenuToggle={profileMenuToggle} />
     </div>
   );
 }
 
-export default HomePage;

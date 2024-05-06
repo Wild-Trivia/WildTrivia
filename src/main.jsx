@@ -4,7 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import QuizDataProvider from "./contexts/QuizDataProvider.jsx";
+import dailyData from "./assets/randomVGQuiz.json";
+import { challengeFetcher } from "./assets/functions.js";
 import ProfileProvider from "./contexts/ProfileProvider.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -15,8 +19,24 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/quiz",
+        path: "/challenges/fastmode",
         element: <QuizPage />,
+        loader: () => challengeFetcher(20),
+      },
+      {
+        path: "/challenges/survival",
+        element: <QuizPage />,
+        loader: () => challengeFetcher(40),
+      },
+      {
+        path: "/challenges/daily",
+        element: <QuizPage />,
+        loader: () => dailyData,
+      },
+      {
+        path: "/challenges/random",
+        element: <QuizPage />,
+        loader: () => challengeFetcher(15),
       },
     ],
   },
@@ -25,7 +45,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <ProfileProvider>
-    <RouterProvider router={router} />
+    <QuizDataProvider>
+      <RouterProvider router={router} />
+    </QuizDataProvider>
   </ProfileProvider>
   // </React.StrictMode>
 );

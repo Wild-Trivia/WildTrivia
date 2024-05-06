@@ -33,12 +33,7 @@ export default function QuizTimer({ timeRemaining, questionTiming }) {
   return (
     <div id="quiz-timer" style={timerStyle()}>
       <p id="timer-text">{timeRemaining}</p>
-      <img
-        id="hourglass"
-        src="src/assets/hourglass.svg"
-        width="35px"
-        style={hourglassAnimation()}
-      />
+      <img id="hourglass" src="../src/assets/hourglass.svg" width="35px" style={hourglassAnimation()} />
     </div>
   );
 }

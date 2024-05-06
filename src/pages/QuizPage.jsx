@@ -3,8 +3,8 @@ import ScoreBoard from "../components/ScoreBoard";
 import QuizTimer from "../components/QuizTimer";
 import QuitConfirmWindow from "../components/QuitConfirmWindow";
 import QuestionCard from "../components/QuestionCard";
-import data from "../assets/randomVGQuiz.json";
 import quizReducer from "../reducers/quizReducer";
+import { useQuizData } from "../contexts/useQuizData";
 import { useEffect, useReducer } from "react";
 import {
   TIMER_RESET_SHUFFLE_ANSWERS,
@@ -17,21 +17,27 @@ import {
   SET_TIMERID,
   TOGGLE_QUIT_BUTTON,
 } from "../reducers/quizReducerActions";
+import LivesCount from "../components/LivesCount";
+import { useLoaderData } from "react-router-dom";
 import { useProfile } from "../contexts/useProfile";
 
-const quizTimer = 15;
-const quizData = data;
-
 export default function QuizPage() {
+  const { quizData } = useQuizData();
+  const dataFetched = useLoaderData();
+  const [quizState, dispatch] = useReducer(quizReducer, initialQuizState);
+  const { profile } = useProfile();
+  
   const initialQuizState = {
-    data: quizData,
-    length: quizData.length,
+    data: dataFetched,
+    length: dataFetched.length,
     currentQuestionNumber: 1,
     totalScore: 0,
     questionScore: 0,
-    timer: quizTimer,
+    timer: quizData.quizTimer,
     timerID: 1,
-    timeRemaining: quizTimer,
+    timeRemaining: quizData.quizTimer,
+    livesRemaining: quizData.lives,
+    lifeManagement: 0,
     isQuitPushed: false,
     isFinished: false,
     answers: [],
@@ -61,9 +67,6 @@ export default function QuizPage() {
       },
     },
   };
-
-  const [quizState, dispatch] = useReducer(quizReducer, initialQuizState);
-  const { profile } = useProfile();
 
   function clickCorrect() {
     dispatch({ type: CORRECT });
@@ -160,7 +163,11 @@ export default function QuizPage() {
         clickCorrect={clickCorrect}
         clickWrong={clickWrong}
       />
-      <div id="void-bottom"></div>
+      <div id="lives-remaining-container">
+        {quizData.isSurvivalOn && (
+          <LivesCount livesRemaining={quizState.livesRemaining} />
+        )}
+      </div>
     </div>
   );
 }
