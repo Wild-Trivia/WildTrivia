@@ -137,7 +137,10 @@ function QuizPage() {
           handleQuitButton={handleQuitButton}
         />
         <ScoreBoard score={quizState.totalScore} />
-        <QuizTimer timeRemaining={quizState.timeRemaining} />
+        <QuizTimer
+          timeRemaining={quizState.timeRemaining}
+          questionTiming={quizState.currentQuestion.timing}
+        />
       </div>
       {quizState.isQuitPushed && (
         <QuitConfirmWindow backOption={handleQuitButton} />
