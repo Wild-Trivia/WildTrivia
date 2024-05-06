@@ -19,11 +19,14 @@ import {
 } from "../reducers/quizReducerActions";
 import LivesCount from "../components/LivesCount";
 import { useLoaderData } from "react-router-dom";
+import { useProfile } from "../contexts/useProfile";
 
-function QuizPage() {
+export default function QuizPage() {
   const { quizData } = useQuizData();
   const dataFetched = useLoaderData();
-
+  const [quizState, dispatch] = useReducer(quizReducer, initialQuizState);
+  const { profile } = useProfile();
+  
   const initialQuizState = {
     data: dataFetched,
     length: dataFetched.length,
@@ -64,8 +67,6 @@ function QuizPage() {
       },
     },
   };
-
-  const [quizState, dispatch] = useReducer(quizReducer, initialQuizState);
 
   function clickCorrect() {
     dispatch({ type: CORRECT });
@@ -120,15 +121,34 @@ function QuizPage() {
     }
   }, [quizState.currentQuestion.timing]);
 
+  const quizPageStyle = () => {
+    switch (profile.theme) {
+      case "Classic":
+        return { backgroundImage: "none" };
+      case "Starry Sky":
+        return { backgroundImage: "url('src/assets/starry-sky.jpg')" };
+      case "Night Jungle":
+        return { backgroundImage: "url('src/assets/night-jungle.jpg')" };
+    }
+  };
+
   return (
-    <div id="quiz-page-container">
+    <div id="quiz-page-container" style={quizPageStyle()}>
       <div id="quiz-info-container">
         <QuitButton
           isQuitPushed={quizState.isQuitPushed}
           handleQuitButton={handleQuitButton}
         />
-        <ScoreBoard score={quizState.totalScore} />
-        <QuizTimer timeRemaining={quizState.timeRemaining} />
+        <ScoreBoard
+          totalScore={quizState.totalScore}
+          questionScore={quizState.questionScore}
+          questionStatus={quizState.currentQuestion.status}
+          questionTiming={quizState.currentQuestion.timing}
+        />
+        <QuizTimer
+          timeRemaining={quizState.timeRemaining}
+          questionTiming={quizState.currentQuestion.timing}
+        />
       </div>
       {quizState.isQuitPushed && (
         <QuitConfirmWindow backOption={handleQuitButton} />
@@ -152,4 +172,3 @@ function QuizPage() {
   );
 }
 
-export default QuizPage;

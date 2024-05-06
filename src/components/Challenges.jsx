@@ -1,8 +1,21 @@
 import PropTypes from "prop-types";
 import { useQuizData } from "../contexts/useQuizData";
+import { useProfile } from "../contexts/useProfile";
 
-function Challenges({ challenge }) {
+export default function Challenges({ challenge }) {
   const { setQuizData } = useQuizData();
+  const { profile } = useProfile();
+
+  const challengeStyle = () => {
+    switch (profile.theme) {
+      case "Classic":
+        return { backgroundColor: challenge.color };
+      case "Starry Sky":
+        return { backgroundColor: "#0f5e5b" };
+      case "Night Jungle":
+        return { backgroundColor: "#044c7f" };
+    }
+  };
 
   const handleChallengeClick = () => {
     setQuizData((value) => {
@@ -53,14 +66,12 @@ function Challenges({ challenge }) {
       style={{ backgroundColor: challenge.color }}
       className="challenges-button"
     >
-      <p style={{ backgroundColor: challenge.color }} className="mode">
+      <p style={challengeStyle()} className="mode">
         {challenge.challengeName}
       </p>
     </button>
   );
 }
-
-export default Challenges;
 
 Challenges.propTypes = {
   challenge: PropTypes.shape({

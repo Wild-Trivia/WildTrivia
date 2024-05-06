@@ -7,6 +7,8 @@ import HomePage from "./pages/HomePage.jsx";
 import QuizDataProvider from "./contexts/QuizDataProvider.jsx";
 import dailyData from "./assets/randomVGQuiz.json";
 import { challengeFetcher } from "./assets/functions.js";
+import ProfileProvider from "./contexts/ProfileProvider.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -42,8 +44,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
-  <QuizDataProvider>
-    <RouterProvider router={router} />
-  </QuizDataProvider>
+  <ProfileProvider>
+    <QuizDataProvider>
+      <RouterProvider router={router} />
+    </QuizDataProvider>
+  </ProfileProvider>
   // </React.StrictMode>
 );
