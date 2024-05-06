@@ -1,13 +1,15 @@
 import PropTypes from "prop-types";
 import { useProfile } from "../contexts/useProfile";
 
-function QuizTimer({ timeRemaining, questionTiming }) {
+export default function QuizTimer({ timeRemaining, questionTiming }) {
   const { profile } = useProfile();
 
   const hourglassAnimation = () => {
     if (questionTiming === "Ongoing") {
-      return { animation: "3s ease-in-out 0s infinite rotation" };  
-  
+      return { animation: "3s ease-in-out 0s infinite rotation" };
+    }
+  };
+
   const timerStyle = () => {
     switch (profile.theme) {
       case "Classic":
@@ -40,8 +42,6 @@ function QuizTimer({ timeRemaining, questionTiming }) {
     </div>
   );
 }
-
-export default QuizTimer;
 
 QuizTimer.propTypes = {
   timeRemaining: PropTypes.number.isRequired,
