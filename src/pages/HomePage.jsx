@@ -23,9 +23,9 @@ export default function HomePage() {
       case "Classic":
         return { backgroundImage: "none" };
       case "Starry Sky":
-        return { backgroundImage: "url('src/assets/starry-sky.jpg')" };
+        return { backgroundImage: "url('../src/assets/starry-sky.jpg')" };
       case "Night Jungle":
-        return { backgroundImage: "url('src/assets/night-jungle.jpg')" };
+        return { backgroundImage: "url('../src/assets/night-jungle.jpg')" };
     }
   };
 
@@ -99,9 +99,9 @@ export default function HomePage() {
           <p className="quiz-select-title">Challenges</p>
         </div>
         <div id="challenges-box">
-            {challengeList.map((challenge) => {
-              return <Challenges key={challenge.id} challenge={challenge} />;
-            })}
+          {challengeList.map((challenge) => {
+            return <Challenges key={challenge.id} challenge={challenge} />;
+          })}
         </div>
       </div>
       <ChallengeMenu />
@@ -109,4 +109,3 @@ export default function HomePage() {
     </div>
   );
 }
-

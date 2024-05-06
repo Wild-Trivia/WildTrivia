@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useProfile } from "../contexts/useProfile";
 
-function AskBox({ questionText }) {
+export default function AskBox({ questionText }) {
   const { profile } = useProfile();
 
   const quitButtonStyle = () => {
@@ -27,8 +27,6 @@ function AskBox({ questionText }) {
     </div>
   );
 }
-
-export default AskBox;
 
 AskBox.propTypes = {
   questionText: PropTypes.string.isRequired,

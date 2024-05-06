@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useProfile } from "../contexts/useProfile";
 
-function QuitButton({ handleQuitButton }) {
+export default function QuitButton({ handleQuitButton }) {
   const { profile } = useProfile();
 
   const quitButtonStyle = () => {
@@ -36,8 +36,6 @@ function QuitButton({ handleQuitButton }) {
     </>
   );
 }
-
-export default QuitButton;
 
 QuitButton.propTypes = {
   handleQuitButton: PropTypes.func.isRequired,

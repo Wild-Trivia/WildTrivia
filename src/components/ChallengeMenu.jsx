@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useQuizData } from "../contexts/useQuizData";
+import { useProfile } from "../contexts/useProfile";
 
 export default function ChallengeMenu() {
   const { quizData, setQuizData } = useQuizData();
+  const { profile } = useProfile();
 
   const challengeMenuAnimation = () => {
     if (quizData.isChallengeButtonPushed) {
@@ -14,6 +16,17 @@ export default function ChallengeMenu() {
     setQuizData((value) => {
       return { ...value, isChallengeButtonPushed: false };
     });
+  };
+
+  const launchButtonStyle = () => {
+    switch (profile.theme) {
+      case "Classic":
+        return { backgroundColor: "#7b59dada" };
+      case "Starry Sky":
+        return { backgroundColor: "#0f5e5bda" };
+      case "Night Jungle":
+        return { backgroundColor: "#044c7fda" };
+    }
   };
 
   return (
@@ -32,6 +45,7 @@ export default function ChallengeMenu() {
             to={quizData.quizMode.route}
             id="challenge-launch-button"
             onClick={handleVoidClick}
+            style={launchButtonStyle()}
           >
             Start the challenge
           </Link>

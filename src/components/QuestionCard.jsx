@@ -4,7 +4,7 @@ import AnswerBox from "./AnswerBox";
 import QuestionCount from "./QuestionCount";
 import QuizCheckText from "./QuizCheckText";
 
-function QuestionCard({
+export default function QuestionCard({
   quizLength,
   currentQuestionNumber,
   questionStatus,
@@ -14,7 +14,6 @@ function QuestionCard({
   clickWrong,
   answers,
 }) {
-  
   const borderStyle = () => {
     if (questionTiming === "Ending") {
       switch (questionStatus) {
@@ -63,8 +62,6 @@ function QuestionCard({
     </div>
   );
 }
-
-export default QuestionCard;
 
 QuestionCard.propTypes = {
   quizLength: PropTypes.number.isRequired,

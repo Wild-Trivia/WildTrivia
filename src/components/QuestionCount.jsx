@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useProfile } from "../contexts/useProfile";
 
-function QuestionCount({ currentQuestionNumber, quizLength }) {
+export default function QuestionCount({ currentQuestionNumber, quizLength }) {
   const { profile } = useProfile();
 
   const countStyle = () => {
@@ -21,8 +21,6 @@ function QuestionCount({ currentQuestionNumber, quizLength }) {
     </div>
   );
 }
-
-export default QuestionCount;
 
 QuestionCount.propTypes = {
   quizLength: PropTypes.number.isRequired,

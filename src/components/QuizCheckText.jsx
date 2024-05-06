@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function QuizCheckText({ questionStatus, questionTiming }) {
+export default function QuizCheckText({ questionStatus, questionTiming }) {
   const checkStyle = () => {
     if (questionTiming === "Ending") {
       switch (questionStatus) {
@@ -24,8 +24,6 @@ function QuizCheckText({ questionStatus, questionTiming }) {
     </div>
   );
 }
-
-export default QuizCheckText;
 
 QuizCheckText.propTypes = {
   questionStatus: PropTypes.string.isRequired,
