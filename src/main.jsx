@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import ProfileProvider from "./contexts/ProfileProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
-  <RouterProvider router={router} />
+  <ProfileProvider>
+    <RouterProvider router={router} />
+  </ProfileProvider>
   // </React.StrictMode>
 );
