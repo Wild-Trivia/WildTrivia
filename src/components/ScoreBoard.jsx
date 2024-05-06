@@ -1,7 +1,13 @@
 import PropTypes from "prop-types";
 import { useProfile } from "../contexts/useProfile";
 
-function ScoreBoard({ score }) {
+
+export default function ScoreBoard({
+  totalScore,
+  questionScore,
+  questionStatus,
+  questionTiming,
+}) {
   const { profile } = useProfile();
 
   const scoreTextStyle = () => {
@@ -34,20 +40,26 @@ function ScoreBoard({ score }) {
     }
   };
 
+    const scoreAnimation = () => {
+    if (questionStatus === "CORRECT!" && questionTiming === "Ending") {
+      return { color: "#0bc734", transform: "translateY(80%)" };
+    }
+  };
+      
   return (
     <div id="score-board">
-      <div id="score-text" style={scoreTextStyle()}>
-        Score
-      </div>
-      <div id="score-number" style={scoreStyle()}>
-        {score}
+      <div id="score-text" style={scoreTextStyle()}>Score</div>
+      <div id="score-number" style={scoreStyle()}>{totalScore}</div>
+      <div id="score-add" style={scoreAnimation()}>
+        +{questionScore}
       </div>
     </div>
   );
 }
 
-export default ScoreBoard;
-
 ScoreBoard.propTypes = {
-  score: PropTypes.number.isRequired,
+  totalScore: PropTypes.number.isRequired,
+  questionScore: PropTypes.number.isRequired,
+  questionStatus: PropTypes.string.isRequired,
+  questionTiming: PropTypes.string.isRequired,
 };

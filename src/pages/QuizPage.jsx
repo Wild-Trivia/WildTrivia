@@ -22,7 +22,7 @@ import { useProfile } from "../contexts/useProfile";
 const quizTimer = 15;
 const quizData = data;
 
-function QuizPage() {
+export default function QuizPage() {
   const initialQuizState = {
     data: quizData,
     length: quizData.length,
@@ -136,7 +136,12 @@ function QuizPage() {
           isQuitPushed={quizState.isQuitPushed}
           handleQuitButton={handleQuitButton}
         />
-        <ScoreBoard score={quizState.totalScore} />
+        <ScoreBoard
+          totalScore={quizState.totalScore}
+          questionScore={quizState.questionScore}
+          questionStatus={quizState.currentQuestion.status}
+          questionTiming={quizState.currentQuestion.timing}
+        />
         <QuizTimer
           timeRemaining={quizState.timeRemaining}
           questionTiming={quizState.currentQuestion.timing}
@@ -160,4 +165,3 @@ function QuizPage() {
   );
 }
 
-export default QuizPage;
