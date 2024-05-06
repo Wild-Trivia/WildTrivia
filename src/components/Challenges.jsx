@@ -63,12 +63,10 @@ export default function Challenges({ challenge }) {
   return (
     <button
       onClick={handleChallengeClick}
-      style={{ backgroundColor: challenge.color }}
+      style={challengeStyle()}
       className="challenges-button"
     >
-      <p style={challengeStyle()} className="mode">
-        {challenge.challengeName}
-      </p>
+      <p className="mode">{challenge.challengeName}</p>
     </button>
   );
 }

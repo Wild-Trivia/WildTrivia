@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useProfile } from "../contexts/useProfile";
 
-function QuickQuizButton({ quizTheme, quizDifficulty, quizLength, color }) {
+export default function QuickQuizButton({
+  quizTheme,
+  quizDifficulty,
+  quizLength,
+  color,
+}) {
   const { profile } = useProfile();
 
   const quickQuizButtonStyle = () => {
@@ -41,8 +46,6 @@ function QuickQuizButton({ quizTheme, quizDifficulty, quizLength, color }) {
   };
   return linkToTheQuiz();
 }
-
-export default QuickQuizButton;
 
 QuickQuizButton.propTypes = {
   quizLength: PropTypes.string.isRequired,

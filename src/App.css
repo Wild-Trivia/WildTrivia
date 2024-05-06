@@ -558,8 +558,7 @@
   font-family: "Autour One", system-ui;
   font-size: 1rem;
   overflow-wrap: break-word;
-  color: rgba(123, 89, 218, 0.7);
-
+  color: inherit;
 }
 
 #void-foot {
@@ -586,7 +585,6 @@
   font-family: "Livvic", sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
-  color: rgba(123, 89, 218, 0.7);
   margin: 3% auto 2% auto;
 }
 
@@ -663,7 +661,6 @@
 }
 
 #challenge-launch-button {
-  background-color: #7b59dada;
   color: #fff;
   text-decoration: none;
   padding: 0.5rem 2rem;

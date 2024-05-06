@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useProfile } from "../contexts/useProfile";
 
-function QuitConfirmWindow({ backOption }) {
+export default function QuitConfirmWindow({ backOption }) {
   const { profile } = useProfile();
 
   const confirmWindowStyle = () => {
@@ -40,8 +40,6 @@ function QuitConfirmWindow({ backOption }) {
     document.querySelector("#ask-box")
   );
 }
-
-export default QuitConfirmWindow;
 
 QuitConfirmWindow.propTypes = {
   backOption: PropTypes.func.isRequired,
