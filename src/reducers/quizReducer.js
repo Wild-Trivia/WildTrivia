@@ -25,13 +25,25 @@ export default function quizReducer(state, action) {
         ]),
       };
     case TIMER_ENDING:
-      return {
-        ...state,
-        currentQuestion: {
-          ...state.currentQuestion,
-          timing: "Ending",
-        },
-      };
+      if (state.streakBonus === 2) {
+        return {
+          ...state,
+          isStreakOn: true,
+          currentQuestion: {
+            ...state.currentQuestion,
+            timing: "Ending",
+          },
+        };
+      } else {
+        return {
+          ...state,
+          isStreakOn: false,
+          currentQuestion: {
+            ...state.currentQuestion,
+            timing: "Ending",
+          },
+        };
+      }
     case QUESTION_SETUP:
       return {
         ...state,
@@ -73,29 +85,65 @@ export default function quizReducer(state, action) {
         },
       };
     case CORRECT:
-      return {
-        ...state,
-        timeRemaining: 0,
-        lifeManagement: 1,
-        questionScore: 100 + state.timeRemaining * 5,
-        currentQuestion: {
-          ...state.currentQuestion,
-          status: "CORRECT!",
-          timing: "Time",
-        },
-      };
+      if (state.streakCount === 2) {
+        return {
+          ...state,
+          timeRemaining: 0,
+          lifeManagement: 1,
+          questionScore: (100 + state.timeRemaining * 5) * 2,
+          streakCount: state.streakCount + 1,
+          streakBonus: 2,
+          currentQuestion: {
+            ...state.currentQuestion,
+            status: "CORRECT!",
+            timing: "Time",
+          },
+        };
+      } else {
+        return {
+          ...state,
+          timeRemaining: 0,
+          lifeManagement: 1,
+          questionScore: (100 + state.timeRemaining * 5) * state.streakBonus,
+          streakCount: state.streakCount + 1,
+          currentQuestion: {
+            ...state.currentQuestion,
+            status: "CORRECT!",
+            timing: "Time",
+          },
+        };
+      }
     case WRONG:
-      return {
-        ...state,
-        timeRemaining: 0,
-        lifeManagement: -1,
-        questionScore: 0,
-        currentQuestion: {
-          ...state.currentQuestion,
-          status: "WRONG!",
-          timing: "Time",
-        },
-      };
+      if (state.streakCount > state.maxStreak) {
+        return {
+          ...state,
+          timeRemaining: 0,
+          lifeManagement: -1,
+          questionScore: 0,
+          streakCount: 0,
+          streakBonus: 1,
+          maxStreak: state.streakCount,
+          currentQuestion: {
+            ...state.currentQuestion,
+            status: "WRONG!",
+            timing: "Time",
+          },
+        };
+      } else {
+        return {
+          ...state,
+          timeRemaining: 0,
+          lifeManagement: -1,
+          questionScore: 0,
+          streakCount: 0,
+          streakBonus: 1,
+          currentQuestion: {
+            ...state.currentQuestion,
+            status: "WRONG!",
+            timing: "Time",
+          },
+        };
+      }
     case NEXT_QUESTION: {
       if (
         state.length === state.currentQuestionNumber ||
@@ -125,19 +173,39 @@ export default function quizReducer(state, action) {
     case TIMER_ONGOING: {
       if (state.timeRemaining <= 1) {
         clearInterval(state.timerID);
-        return {
-          ...state,
-          timeRemaining: 0,
-          lifeManagement: -1,
-          questionScore: 0,
-          currentQuestion: {
-            ...state.currentQuestion,
-            status: "TIME'S UP!",
-            timing: "Timeup",
-          },
-        };
+        if (state.streakCount > state.maxStreak) {
+          return {
+            ...state,
+            timeRemaining: 0,
+            lifeManagement: -1,
+            questionScore: 0,
+            streakCount: 0,
+            streakBonus: 1,
+            maxStreak: state.streakCount,
+            currentQuestion: {
+              ...state.currentQuestion,
+              status: "TIME'S UP!",
+              timing: "Timeup",
+            },
+          };
+        } else {
+          return {
+            ...state,
+            timeRemaining: 0,
+            lifeManagement: -1,
+            questionScore: 0,
+            streakCount: 0,
+            streakBonus: 1,
+            currentQuestion: {
+              ...state.currentQuestion,
+              status: "TIME'S UP!",
+              timing: "Timeup",
+            },
+          };
+        }
+      } else {
+        return { ...state, timeRemaining: state.timeRemaining - 1 };
       }
-      return { ...state, timeRemaining: state.timeRemaining - 1 };
     }
     case SET_TIMERID:
       return { ...state, timerID: action.payload };
