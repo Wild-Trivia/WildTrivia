@@ -32,6 +32,10 @@ export default function QuizPage() {
     currentQuestionNumber: 1,
     totalScore: 0,
     questionScore: 0,
+    streakCount: 0,
+    streakBonus: 1,
+    maxStreak: 0,
+    isStreakOn: false,
     timer: quizData.quizTimer,
     timerID: 1,
     timeRemaining: quizData.quizTimer,
@@ -145,6 +149,7 @@ export default function QuizPage() {
           questionScore={quizState.questionScore}
           questionStatus={quizState.currentQuestion.status}
           questionTiming={quizState.currentQuestion.timing}
+          isStreakOn={quizState.isStreakOn}
         />
         <QuizTimer
           timeRemaining={quizState.timeRemaining}
