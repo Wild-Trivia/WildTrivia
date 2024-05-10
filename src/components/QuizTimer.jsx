@@ -5,8 +5,16 @@ export default function QuizTimer({ timeRemaining, questionTiming }) {
   const { profile } = useProfile();
 
   const hourglassAnimation = () => {
-    if (questionTiming === "Ongoing") {
-      return { animation: "3s ease-in-out 0s infinite rotation" };
+    if (questionTiming === "Ongoing" && timeRemaining > 3) {
+      return { animation: "3s ease-in-out 0s infinite turning" };
+    } else if (questionTiming === "Ongoing" && timeRemaining <= 3) {
+      return { animation: "1s linear 0s infinite wobbling" };
+    }
+  };
+
+  const timerAnimation = () => {
+    if (questionTiming === "Ongoing" && timeRemaining <= 3) {
+      return { animation: "1s linear 0s infinite hurry-timer" };
     }
   };
 
@@ -32,8 +40,15 @@ export default function QuizTimer({ timeRemaining, questionTiming }) {
 
   return (
     <div id="quiz-timer" style={timerStyle()}>
-      <p id="timer-text">{timeRemaining}</p>
-      <img id="hourglass" src="../src/assets/hourglass.svg" width="35px" style={hourglassAnimation()} />
+      <p id="timer-text" style={timerAnimation()}>
+        {timeRemaining}
+      </p>
+      <img
+        id="hourglass"
+        src="../src/assets/hourglass.svg"
+        width="35px"
+        style={hourglassAnimation()}
+      />
     </div>
   );
 }
