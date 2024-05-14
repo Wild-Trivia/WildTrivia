@@ -88,7 +88,7 @@ export default function CustomQuizMenu() {
   };
 
   const routeHandler = () => {
-    switch (quizData.quizTheme) {
+    switch (quizData.theme) {
       case "Any":
         return `/quiz/${quizData.questionTotal}/Any/${quizData.difficulty}`;
       case "Books":
