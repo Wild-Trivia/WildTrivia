@@ -89,6 +89,7 @@ export default function quizReducer(state, action) {
         return {
           ...state,
           timeRemaining: 0,
+          goodAnswers: state.goodAnswers + 1,
           lifeManagement: 1,
           questionScore: (100 + state.timeRemaining * 5) * 2,
           streakCount: state.streakCount + 1,
@@ -103,6 +104,7 @@ export default function quizReducer(state, action) {
         return {
           ...state,
           timeRemaining: 0,
+          goodAnswers: state.goodAnswers + 1,
           lifeManagement: 1,
           questionScore: (100 + state.timeRemaining * 5) * state.streakBonus,
           streakCount: state.streakCount + 1,
@@ -153,7 +155,7 @@ export default function quizReducer(state, action) {
           ...state,
           totalScore: state.totalScore + state.questionScore,
           livesRemaining: state.livesRemaining + state.lifeManagement,
-          currentQuestionNumber: 1,
+          isFinished: true,
         };
       } else if (state.livesRemaining === 3 && state.lifeManagement === 1) {
         return {
