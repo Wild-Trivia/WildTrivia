@@ -18,6 +18,7 @@ import {
   TOGGLE_QUIT_BUTTON,
 } from "../reducers/quizReducerActions";
 import LivesCount from "../components/LivesCount";
+import QuizResults from "../components/QuizResults";
 import { useLoaderData } from "react-router-dom";
 import { useProfile } from "../contexts/useProfile";
 
@@ -36,6 +37,7 @@ export default function QuizPage() {
     streakBonus: 1,
     maxStreak: 0,
     isStreakOn: false,
+    goodAnswers: 0,
     timer: parseInt(quizData.quizTimer),
     timerID: 1,
     timeRemaining: parseInt(quizData.quizTimer),
@@ -174,6 +176,15 @@ export default function QuizPage() {
           <LivesCount livesRemaining={quizState.livesRemaining} />
         )}
       </div>
+      {quizState.isFinished && (
+        <QuizResults
+          score={quizState.totalScore}
+          goodAnswers={quizState.goodAnswers}
+          quizLength={quizState.length}
+          streakCount={quizState.streakCount}
+          maxStreak={quizState.maxStreak}
+        />
+      )}
     </div>
   );
 }
