@@ -99,7 +99,7 @@
     "id": 13,
     "quizTheme": "Politics",
     "themeID": 24,
-    "quizDifficulty": "medium",
+    "quizDifficulty": "hard",
     "quizLength": 10,
     "image": "src/assets/politics.jpg"
   },
