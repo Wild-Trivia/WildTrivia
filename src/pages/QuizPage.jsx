@@ -21,6 +21,7 @@ import LivesCount from "../components/LivesCount";
 import QuizResults from "../components/QuizResults";
 import { useLoaderData } from "react-router-dom";
 import { useProfile } from "../contexts/useProfile";
+import { motion } from "framer-motion";
 
 export default function QuizPage() {
   const { quizData } = useQuizData();
@@ -140,7 +141,9 @@ export default function QuizPage() {
   };
 
   return (
-    <div id="quiz-page-container" style={quizPageStyle()}>
+    <motion.div initial={{ x: -100 }}
+    animate={{ x: 0 }}
+    transition={{ duration: 0.3 }} id="quiz-page-container" style={quizPageStyle()}>
       <div id="quiz-info-container">
         <QuitButton
           isQuitPushed={quizState.isQuitPushed}
@@ -185,6 +188,6 @@ export default function QuizPage() {
           maxStreak={quizState.maxStreak}
         />
       )}
-    </div>
+    </motion.div>
   );
 }

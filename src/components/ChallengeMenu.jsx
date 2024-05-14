@@ -8,7 +8,7 @@ export default function ChallengeMenu() {
 
   const challengeMenuAnimation = () => {
     if (quizData.isChallengeButtonPushed) {
-      return { transform: "translateY(0%)" };
+      return { transform: "translateY(0%)", backgroundColor: "rgba(153, 151, 151, 0.400)" };
     }
   };
 

@@ -8,7 +8,7 @@ export default function CustomQuizMenu() {
 
   const customQuizMenuAnimation = () => {
     if (quizData.isCustomButtonPushed) {
-      return { transform: "translateY(0%)" };
+      return { transform: "translateY(0%)", backgroundColor: "rgba(153, 151, 151, 0.400)" };
     }
   };
 

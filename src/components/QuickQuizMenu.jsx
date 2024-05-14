@@ -8,7 +8,7 @@ export default function QuickQuizMenu() {
 
   const quickQuizMenuAnimation = () => {
     if (quizData.isQuickQuizButtonPushed) {
-      return { transform: "translateY(0%)" };
+      return { transform: "translateY(0%)", backgroundColor: "rgba(153, 151, 151, 0.400)" };
     }
   };
 

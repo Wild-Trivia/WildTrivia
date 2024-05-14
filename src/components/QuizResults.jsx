@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useProfile } from "../contexts/useProfile";
 import { useQuizData } from "../contexts/useQuizData";
 import Confetti from "react-confetti";
+import { motion } from "framer-motion";
 
 export default function QuizResults({
   score,
@@ -94,7 +95,9 @@ export default function QuizResults({
   };
 
   return (
-    <div id="quiz-results-container" style={resultPageStyle()}>
+    <motion.div initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }} transition={{duration: 0.5}} id="quiz-results-container" style={resultPageStyle()}>
       {goodAnswers / quizLength >= 0.5 && (
         <Confetti width="360px" height="760px" />
       )}
@@ -148,7 +151,7 @@ export default function QuizResults({
           </button>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

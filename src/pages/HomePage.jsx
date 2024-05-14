@@ -9,6 +9,7 @@ import ProfileMenu from "../components/ProfileMenu";
 import QuickQuizMenu from "../components/QuickQuizMenu";
 import CustomQuizMenu from "../components/CustomQuizMenu";
 import { useQuizData } from "../contexts/useQuizData";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   const { profile, setProfile } = useProfile();
@@ -95,7 +96,10 @@ export default function HomePage() {
   };
 
   return (
-    <div id="home-page-container" style={homePageStyle()}>
+    <motion.div initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }} id="home-page-container" style={homePageStyle()}>
       <div id="home-page-header">
         <p id="greeting" style={greetingStyle()}>
           Hello, {profile.profileName}!
@@ -136,6 +140,6 @@ export default function HomePage() {
       <QuickQuizMenu />
       <CustomQuizMenu />
       <ProfileMenu profileMenuToggle={profileMenuToggle} />
-    </div>
+    </motion.div>
   );
 }
