@@ -14,6 +14,8 @@ import {
   quizFetcher,
 } from "./assets/functions.js";
 import ProfileProvider from "./contexts/ProfileProvider.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,28 +28,48 @@ const router = createBrowserRouter([
       },
       {
         path: "/quiz/:amount/:category/:difficulty",
-        element: <QuizPage />,
+        element: (
+          <ErrorBoundary fallback={<ErrorPage />}>
+            <QuizPage />
+          </ErrorBoundary>
+        ),
         loader: ({ params }) =>
           quizFetcher(params.amount, params.category, params.difficulty),
       },
       {
         path: "/challenges/fastmode",
-        element: <QuizPage />,
+        element: (
+          <ErrorBoundary fallback={<ErrorPage />}>
+            <QuizPage />
+          </ErrorBoundary>
+        ),
         loader: () => challengeFetcher(20),
       },
       {
         path: "/challenges/survival",
-        element: <QuizPage />,
+        element: (
+          <ErrorBoundary fallback={<ErrorPage />}>
+            <QuizPage />
+          </ErrorBoundary>
+        ),
         loader: () => challengeFetcher(40),
       },
       {
         path: "/challenges/daily",
-        element: <QuizPage />,
+        element: (
+          <ErrorBoundary fallback={<ErrorPage />}>
+            <QuizPage />
+          </ErrorBoundary>
+        ),
         loader: () => dailyData,
       },
       {
         path: "/challenges/random",
-        element: <QuizPage />,
+        element: (
+          <ErrorBoundary fallback={<ErrorPage />}>
+            <QuizPage />
+          </ErrorBoundary>
+        ),
         loader: () => challengeFetcher(15),
       },
     ],

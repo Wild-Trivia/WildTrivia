@@ -1055,3 +1055,58 @@
   border-radius: 0.75rem;
   font-weight: 600;
 }
+
+/* ERROR PAGE LAYOUT
+   ----------------- 
+   ----------------- */
+
+#error-page-container {
+  position: relative;
+  width: 100%;
+  background-color: white;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: center;
+}
+
+#error-page-container * {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#error-text {
+  flex: 2;
+  width: 90%;
+  font-family: "Livvic", sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  transform: translateY(20%);
+}
+
+#error-description {
+  flex: 3;
+  width: 90%;
+  font-family: "Livvic", sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  transform: translateY(10%);
+}
+
+#error-quit-container {
+  flex: 1;
+  width: 90%;
+  text-align: center;
+  transform: translateY(10%);
+}
+
+#error-quit-button {
+  color: #000;
+  background-color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 3rem;
+  border-radius: 0.75rem;
+  font-family: "Livvic", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
