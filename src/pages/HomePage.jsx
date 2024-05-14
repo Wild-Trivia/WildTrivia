@@ -1,7 +1,6 @@
 import QuickQuizButton from "../components/QuickQuizButton";
 import Challenges from "../components/Challenges";
 import ChallengeMenu from "../components/ChallengeMenu";
-// import quickQuizList from "../assets/qqlist.json";
 import challengeList from "../assets/challengeList.json";
 import { useLoaderData } from "react-router-dom";
 import { useProfile } from "../contexts/useProfile";
@@ -55,9 +54,9 @@ export default function HomePage() {
       case "Classic":
         return { backgroundImage: "none" };
       case "Starry Sky":
-        return { backgroundImage: "url('../src/assets/starry-sky.jpg')" };
+        return { backgroundImage: "url('/src/assets/starry-sky.jpg')" };
       case "Night Jungle":
-        return { backgroundImage: "url('../src/assets/night-jungle.jpg')" };
+        return { backgroundImage: "url('/src/assets/night-jungle.jpg')" };
     }
   };
 

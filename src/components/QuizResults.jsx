@@ -34,11 +34,11 @@ export default function QuizResults({
 
   const resultImageSource = () => {
     if (goodAnswers / quizLength >= 0.5) {
-      return "../src/assets/result-img-crown.png";
+      return "/src/assets/result-img-crown.png";
     } else if (goodAnswers === 0) {
-      return "../src/assets/result-img-defeat.png";
+      return "/src/assets/result-img-defeat.png";
     } else {
-      return "../src/assets/result-img-standard.png";
+      return "/src/assets/result-img-standard.png";
     }
   };
 
@@ -51,12 +51,12 @@ export default function QuizResults({
           return { backgroundImage: "none" };
         case "Starry Sky":
           return {
-            backgroundImage: "url('../src/assets/starry-sky.jpg')",
+            backgroundImage: "url('/src/assets/starry-sky.jpg')",
             backgroundSize: "cover",
           };
         case "Night Jungle":
           return {
-            backgroundImage: "url('../src/assets/night-jungle.jpg')",
+            backgroundImage: "url('/src/assets/night-jungle.jpg')",
             backgroundSize: "cover",
           };
       }
