@@ -32,12 +32,14 @@ export default function ProfileMenu({ profileMenuToggle }) {
   };
 
   const handleNameChange = (event) => {
+    localStorage.setItem("profileName", event.target.value);
     setProfile((state) => {
       return { ...state, profileName: event.target.value };
     });
   };
 
   const handleThemeChange = (event) => {
+    localStorage.setItem("theme", event.target.value);
     setProfile((state) => {
       return { ...state, theme: event.target.value };
     });
