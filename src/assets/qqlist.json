@@ -5,7 +5,7 @@
     "themeID": 9,
     "quizDifficulty": "easy",
     "quizLength": 14,
-    "image": "src/assets/knowledge.jpg"
+    "image": "/src/assets/knowledge.jpg"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "themeID": 10,
     "quizDifficulty": "medium",
     "quizLength": 12,
-    "image": "src/assets/books.jpg"
+    "image": "/src/assets/books.jpg"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "themeID": 11,
     "quizDifficulty": "medium",
     "quizLength": 10,
-    "image": "src/assets/films.jpg"
+    "image": "/src/assets/films.jpg"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "themeID": 12,
     "quizDifficulty": "easy",
     "quizLength": 14,
-    "image": "src/assets/music.jpg"
+    "image": "/src/assets/music.jpg"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "themeID": 14,
     "quizDifficulty": "hard",
     "quizLength": 12,
-    "image": "src/assets/television.jpg"
+    "image": "/src/assets/television.jpg"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "themeID": 15,
     "quizDifficulty": "hard",
     "quizLength": 16,
-    "image": "src/assets/video-games.jpg"
+    "image": "/src/assets/video-games.jpg"
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@
     "themeID": 17,
     "quizDifficulty": "medium",
     "quizLength": 12,
-    "image": "src/assets/science.jpg"
+    "image": "/src/assets/science.jpg"
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@
     "themeID": 18,
     "quizDifficulty": "hard",
     "quizLength": 14,
-    "image": "src/assets/computers.jpg"
+    "image": "/src/assets/computers.jpg"
   },
   {
     "id": 9,
@@ -69,7 +69,7 @@
     "themeID": 20,
     "quizDifficulty": "easy",
     "quizLength": 10,
-    "image": "src/assets/mythology.jpg"
+    "image": "/src/assets/mythology.jpg"
   },
   {
     "id": 10,
@@ -77,7 +77,7 @@
     "themeID": 21,
     "quizDifficulty": "medium",
     "quizLength": 20,
-    "image": "src/assets/sports.jpg"
+    "image": "/src/assets/sports.jpg"
   },
   {
     "id": 11,
@@ -85,7 +85,7 @@
     "themeID": 22,
     "quizDifficulty": "medium",
     "quizLength": 14,
-    "image": "src/assets/geography.jpg"
+    "image": "/src/assets/geography.jpg"
   },
   {
     "id": 12,
@@ -93,7 +93,7 @@
     "themeID": 23,
     "quizDifficulty": "easy",
     "quizLength": 12,
-    "image": "src/assets/history.jpg"
+    "image": "/src/assets/history.jpg"
   },
   {
     "id": 13,
@@ -101,7 +101,7 @@
     "themeID": 24,
     "quizDifficulty": "hard",
     "quizLength": 10,
-    "image": "src/assets/politics.jpg"
+    "image": "/src/assets/politics.jpg"
   },
   {
     "id": 14,
@@ -109,7 +109,7 @@
     "themeID": 27,
     "quizDifficulty": "medium",
     "quizLength": 16,
-    "image": "src/assets/animals.jpg"
+    "image": "/src/assets/animals.jpg"
   },
   {
     "id": 15,
@@ -117,7 +117,7 @@
     "themeID": 28,
     "quizDifficulty": "easy",
     "quizLength": 10,
-    "image": "src/assets/vehicles.jpg"
+    "image": "/src/assets/vehicles.jpg"
   },
   {
     "id": 16,
@@ -125,7 +125,7 @@
     "themeID": 29,
     "quizDifficulty": "medium",
     "quizLength": 14,
-    "image": "src/assets/comics.jpg"
+    "image": "/src/assets/comics.jpg"
   },
   {
     "id": 17,
@@ -133,7 +133,7 @@
     "themeID": 31,
     "quizDifficulty": "hard",
     "quizLength": 18,
-    "image": "src/assets/manga-anime.jpg"
+    "image": "/src/assets/manga-anime.jpg"
   },
   {
     "id": 18,
@@ -141,6 +141,6 @@
     "themeID": 32,
     "quizDifficulty": "medium",
     "quizLength": 12,
-    "image": "src/assets/cartoons.jpg"
+    "image": "/src/assets/cartoons.jpg"
   }
 ]
