@@ -31,7 +31,7 @@ export default function ChallengeMenu() {
 
   return (
     <div id="challenge-menu-container" style={challengeMenuAnimation()}>
-      <div id="grey-void" onClick={handleVoidClick} />
+      <div className="grey-void" onClick={handleVoidClick} />
       <div id="challenge-menu">
         <div id="challenge-image-container">
           <img src={quizData.quizMode.image} width="100%" />

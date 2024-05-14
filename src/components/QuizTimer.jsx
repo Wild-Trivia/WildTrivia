@@ -45,7 +45,7 @@ export default function QuizTimer({ timeRemaining, questionTiming }) {
       </p>
       <img
         id="hourglass"
-        src="../src/assets/hourglass.svg"
+        src="/src/assets/hourglass.svg"
         width="35px"
         style={hourglassAnimation()}
       />

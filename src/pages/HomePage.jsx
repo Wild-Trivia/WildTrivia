@@ -1,13 +1,19 @@
 import QuickQuizButton from "../components/QuickQuizButton";
 import Challenges from "../components/Challenges";
 import ChallengeMenu from "../components/ChallengeMenu";
-import quickQuizList from "../assets/qqlist.json";
+// import quickQuizList from "../assets/qqlist.json";
 import challengeList from "../assets/challengeList.json";
+import { useLoaderData } from "react-router-dom";
 import { useProfile } from "../contexts/useProfile";
 import ProfileMenu from "../components/ProfileMenu";
+import QuickQuizMenu from "../components/QuickQuizMenu";
+import CustomQuizMenu from "../components/CustomQuizMenu";
+import { useQuizData } from "../contexts/useQuizData";
 
 export default function HomePage() {
   const { profile, setProfile } = useProfile();
+  const { quizData, setQuizData } = useQuizData();
+  const quickQuizList = useLoaderData();
 
   const profileMenuToggle = () => {
     setProfile((value) => {
@@ -16,6 +22,32 @@ export default function HomePage() {
         isMenuButtonPushed: !value.isMenuButtonPushed,
       };
     });
+  };
+
+  const customQuizToggle = () => {
+    if (quizData.gameMode === "Custom Quiz") {
+      setQuizData((value) => {
+        return {
+          ...value,
+          isCustomButtonPushed: true,
+        };
+      });
+    } else {
+      setQuizData((value) => {
+        return {
+          ...value,
+          isCustomButtonPushed: true,
+          quizMode: "Default",
+          gameMode: "Custom Quiz",
+          theme: "Any",
+          difficulty: "any",
+          questionTotal: 10,
+          quizTimer: 15,
+          isSurvivalOn: false,
+          lives: 500,
+        };
+      });
+    }
   };
 
   const homePageStyle = () => {
@@ -79,19 +111,15 @@ export default function HomePage() {
         </div>
         <div id="quick-quiz-box">
           {quickQuizList.map((quiz) => {
-            return (
-              <QuickQuizButton
-                key={quiz.id}
-                quizTheme={quiz.quizTheme}
-                quizDifficulty={quiz.quizDifficulty}
-                quizLength={quiz.quizLength}
-                color={quiz.color}
-              />
-            );
+            return <QuickQuizButton key={quiz.id} quiz={quiz} />;
           })}
         </div>
         <div id="quiz-creation-container">
-          <button id="quiz-creation-button" style={quizCreationButtonStyle()}>
+          <button
+            id="quiz-creation-button"
+            onClick={customQuizToggle}
+            style={quizCreationButtonStyle()}
+          >
             Create My Quiz
           </button>
         </div>
@@ -105,6 +133,8 @@ export default function HomePage() {
         </div>
       </div>
       <ChallengeMenu />
+      <QuickQuizMenu />
+      <CustomQuizMenu />
       <ProfileMenu profileMenuToggle={profileMenuToggle} />
     </div>
   );

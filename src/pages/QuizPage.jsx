@@ -36,9 +36,9 @@ export default function QuizPage() {
     streakBonus: 1,
     maxStreak: 0,
     isStreakOn: false,
-    timer: quizData.quizTimer,
+    timer: parseInt(quizData.quizTimer),
     timerID: 1,
-    timeRemaining: quizData.quizTimer,
+    timeRemaining: parseInt(quizData.quizTimer),
     livesRemaining: quizData.lives,
     lifeManagement: 0,
     isQuitPushed: false,
@@ -131,9 +131,9 @@ export default function QuizPage() {
       case "Classic":
         return { backgroundImage: "none" };
       case "Starry Sky":
-        return { backgroundImage: "url('../src/assets/starry-sky.jpg')" };
+        return { backgroundImage: "url('/src/assets/starry-sky.jpg')" };
       case "Night Jungle":
-        return { backgroundImage: "url('../src/assets/night-jungle.jpg')" };
+        return { backgroundImage: "url('/src/assets/night-jungle.jpg')" };
     }
   };
 
