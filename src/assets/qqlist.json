@@ -1,44 +1,146 @@
 [
   {
     "id": 1,
-    "quizTheme": "Name",
-    "quizDifficulty": "Difficulty",
-    "quizLength": "Questions",
-    "color": "#e32636"
+    "quizTheme": "G. Knowledge",
+    "themeID": 9,
+    "quizDifficulty": "easy",
+    "quizLength": 14,
+    "image": "src/assets/knowledge.jpg"
   },
   {
     "id": 2,
-    "quizTheme": "Name",
-    "quizDifficulty": "Difficulty",
-    "quizLength": "Questions",
-    "color": "#2e8b57"
+    "quizTheme": "Books",
+    "themeID": 10,
+    "quizDifficulty": "medium",
+    "quizLength": 12,
+    "image": "src/assets/books.jpg"
   },
   {
     "id": 3,
-    "quizTheme": "Name",
-    "quizDifficulty": "Difficulty",
-    "quizLength": "Questions",
-    "color": "#ff4500"
+    "quizTheme": "Films",
+    "themeID": 11,
+    "quizDifficulty": "medium",
+    "quizLength": 10,
+    "image": "src/assets/films.jpg"
   },
   {
     "id": 4,
-    "quizTheme": "Name",
-    "quizDifficulty": "Difficulty",
-    "quizLength": "Questions",
-    "color": "#00688b"
+    "quizTheme": "Music",
+    "themeID": 12,
+    "quizDifficulty": "easy",
+    "quizLength": 14,
+    "image": "src/assets/music.jpg"
   },
   {
     "id": 5,
-    "quizTheme": "Name",
-    "quizDifficulty": "Difficulty",
-    "quizLength": "Questions",
-    "color": "#4169e1"
+    "quizTheme": "Television",
+    "themeID": 14,
+    "quizDifficulty": "hard",
+    "quizLength": 12,
+    "image": "src/assets/television.jpg"
   },
   {
     "id": 6,
-    "quizTheme": "Name",
-    "quizDifficulty": "Difficulty",
-    "quizLength": "Questions",
-    "color": "#ca3291"
+    "quizTheme": "Video Games",
+    "themeID": 15,
+    "quizDifficulty": "hard",
+    "quizLength": 16,
+    "image": "src/assets/video-games.jpg"
+  },
+  {
+    "id": 7,
+    "quizTheme": "Science",
+    "themeID": 17,
+    "quizDifficulty": "medium",
+    "quizLength": 12,
+    "image": "src/assets/science.jpg"
+  },
+  {
+    "id": 8,
+    "quizTheme": "Computers",
+    "themeID": 18,
+    "quizDifficulty": "hard",
+    "quizLength": 14,
+    "image": "src/assets/computers.jpg"
+  },
+  {
+    "id": 9,
+    "quizTheme": "Mythology",
+    "themeID": 20,
+    "quizDifficulty": "easy",
+    "quizLength": 10,
+    "image": "src/assets/mythology.jpg"
+  },
+  {
+    "id": 10,
+    "quizTheme": "Sports",
+    "themeID": 21,
+    "quizDifficulty": "medium",
+    "quizLength": 20,
+    "image": "src/assets/sports.jpg"
+  },
+  {
+    "id": 11,
+    "quizTheme": "Geography",
+    "themeID": 22,
+    "quizDifficulty": "medium",
+    "quizLength": 14,
+    "image": "src/assets/geography.jpg"
+  },
+  {
+    "id": 12,
+    "quizTheme": "History",
+    "themeID": 23,
+    "quizDifficulty": "easy",
+    "quizLength": 12,
+    "image": "src/assets/history.jpg"
+  },
+  {
+    "id": 13,
+    "quizTheme": "Politics",
+    "themeID": 24,
+    "quizDifficulty": "medium",
+    "quizLength": 10,
+    "image": "src/assets/politics.jpg"
+  },
+  {
+    "id": 14,
+    "quizTheme": "Animals",
+    "themeID": 27,
+    "quizDifficulty": "medium",
+    "quizLength": 16,
+    "image": "src/assets/animals.jpg"
+  },
+  {
+    "id": 15,
+    "quizTheme": "Vehicles",
+    "themeID": 28,
+    "quizDifficulty": "easy",
+    "quizLength": 10,
+    "image": "src/assets/vehicles.jpg"
+  },
+  {
+    "id": 16,
+    "quizTheme": "Comics",
+    "themeID": 29,
+    "quizDifficulty": "medium",
+    "quizLength": 14,
+    "image": "src/assets/comics.jpg"
+  },
+  {
+    "id": 17,
+    "quizTheme": "Manga/Anime",
+    "themeID": 31,
+    "quizDifficulty": "hard",
+    "quizLength": 18,
+    "image": "src/assets/manga-anime.jpg"
+  },
+  {
+    "id": 18,
+    "quizTheme": "Cartoons",
+    "themeID": 32,
+    "quizDifficulty": "medium",
+    "quizLength": 12,
+    "image": "src/assets/cartoons.jpg"
   }
 ]

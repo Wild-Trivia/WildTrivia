@@ -52,6 +52,7 @@
 #profile-button {
   border: none;
   background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
 }
 
 #profile-button img {
@@ -236,6 +237,7 @@
   text-decoration: none;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .theme {
@@ -246,6 +248,7 @@
 .settings {
   margin-top: 0.2rem;
   font-size: 0.85rem;
+  text-transform: capitalize;
 }
 
 #quiz-creation-container {
@@ -265,6 +268,7 @@
   box-shadow: 1px 1px 4px 1px rgba(123, 123, 123, 0.7);
   padding: 0.35rem 2.8rem;
   transform: translateY(30%);
+  cursor: pointer;
 }
 
 #challenges-box {
@@ -287,6 +291,7 @@
   color: #fff;
   font-family: "Livvic", sans-serif;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .mode {
@@ -784,7 +789,7 @@
   transform: translateY(100%);
 }
 
-#grey-void {
+.grey-void {
   flex: 1;
   width: 100%;
   background-color: rgba(153, 151, 151, 0);
@@ -842,6 +847,211 @@
   color: #fff;
   text-decoration: none;
   padding: 0.5rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+}
+
+/* QUICK QUIZ MENU LAYOUT
+   ---------------------- 
+   ---------------------- */
+
+#quick-quiz-menu-container {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  background-color: rgba(153, 151, 151, 0.5);
+  display: flex;
+  flex-direction: column;
+  transition: all 1s ease-in-out;
+  transform: translateY(100%);
+}
+
+#quick-quiz-menu {
+  flex: 0.85;
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Livvic", sans-serif;
+}
+
+#quick-quiz-menu * {
+  background-color: rgba(153, 151, 151, 0);
+}
+
+#quick-quiz-image-container {
+  flex: 1;
+  margin-top: 6%;
+  width: 88%;
+}
+
+#quick-quiz-image-container img {
+  border-radius: 1rem;
+}
+
+#quick-quiz-text-container {
+  flex: 1;
+  width: 90%;
+}
+
+#quick-quiz-text-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 1%;
+}
+
+.quick-quiz-text-content {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1%;
+  text-transform: capitalize;
+}
+
+#quick-quiz-launch-container {
+  flex: 0.4;
+  width: 90%;
+}
+
+#quick-quiz-launch-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 3rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+}
+
+/* CUSTOM QUIZ MENU LAYOUT
+   ----------------------- 
+   ----------------------- */
+
+#custom-quiz-menu-container {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  background-color: rgba(153, 151, 151, 0.5);
+  display: flex;
+  flex-direction: column;
+  transition: all 1s ease-in-out;
+  transform: translateY(100%);
+}
+
+#custom-quiz-menu {
+  flex: 0.85;
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "Livvic", sans-serif;
+}
+
+#custom-quiz-menu * {
+  background-color: rgba(153, 151, 151, 0);
+}
+
+#custom-quiz-data-container {
+  flex: 2;
+  margin-top: 2%;
+  width: 90%;
+}
+
+#theme-selection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#theme-selection label {
+  margin: 0 0 2% 0;
+  font-weight: 600;
+}
+
+#theme-selection select {
+  margin: 0 0;
+  width: 80%;
+  border-radius: 0.5rem;
+  padding: 0.2rem 1rem;
+  font-family: "Livvic", sans-serif;
+  font-weight: 600;
+}
+
+#difficulty-selection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 5%;
+}
+
+#difficulty-selection label {
+  margin: 0 0 2% 0;
+  font-weight: 600;
+}
+
+#difficulty-selection select {
+  margin: 0 0;
+  width: 80%;
+  border-radius: 0.5rem;
+  padding: 0.2rem 1rem;
+  font-family: "Livvic", sans-serif;
+  font-weight: 600;
+}
+
+#amount-selection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 5%;
+}
+
+#amount-selection label {
+  margin: 0 0 2% 0;
+  font-weight: 600;
+}
+
+#amount-selection input {
+  margin: 0 0;
+  width: 20%;
+  border-radius: 0.5rem;
+  padding: 0.2rem 1rem;
+  font-family: "Livvic", sans-serif;
+  font-weight: 600;
+}
+
+#timer-selection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 5%;
+}
+
+#timer-selection label {
+  margin: 0 0 2% 0;
+  font-weight: 600;
+}
+
+#timer-selection input {
+  margin: 0 0;
+  width: 80%;
+}
+
+#custom-quiz-launch-container {
+  flex: 0.4;
+  width: 90%;
+  text-align: center;
+}
+
+#custom-quiz-launch-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 3rem;
   border-radius: 0.75rem;
   font-weight: 600;
 }

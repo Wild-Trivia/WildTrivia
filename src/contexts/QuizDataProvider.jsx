@@ -5,7 +5,12 @@ import { QuizDataContext } from "./QuizDataContext";
 export default function QuizDataProvider({ children }) {
   const [quizData, setQuizData] = useState({
     isChallengeButtonPushed: false,
+    isQuickQuizButtonPushed: false,
+    isCustomButtonPushed: false,
     quizMode: "Default",
+    gameMode: "Default",
+    theme: "Any",
+    difficulty: "Any",
     questionTotal: 10,
     quizTimer: 15,
     isSurvivalOn: false,
