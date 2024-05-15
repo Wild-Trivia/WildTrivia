@@ -87,6 +87,17 @@ export default function CustomQuizMenu() {
     }
   };
 
+  const rangeInputStyle = () => {
+    switch (profile.theme) {
+      case "Classic":
+        return { accentColor: "#7b59dada" };
+      case "Starry Sky":
+        return { accentColor: "#0f5e5bda" };
+      case "Night Jungle":
+        return { accentColor: "#044c7fda" };
+    }
+  };
+
   const routeHandler = () => {
     switch (quizData.theme) {
       case "Any":
@@ -178,6 +189,7 @@ export default function CustomQuizMenu() {
               value={quizData.quizTimer}
               step="1"
               onChange={handleTimerChange}
+              style={rangeInputStyle()}
             />
           </div>
         </div>
