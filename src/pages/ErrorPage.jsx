@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useProfile } from "../contexts/useProfile";
+import { motion } from "framer-motion";
 
 export default function ErrorPage() {
   const { profile } = useProfile();
@@ -37,7 +38,9 @@ export default function ErrorPage() {
   };
 
   return (
-    <div id="error-page-container" style={errorPageStyle()}>
+    <motion.div initial={{ x: -100 }}
+    animate={{ x: 0 }}
+    transition={{ duration: 0.3 }} id="error-page-container" style={errorPageStyle()}>
       <p id="error-text" style={colorStyle()}>
         Sorry, something went wrong!
       </p>
@@ -54,6 +57,6 @@ export default function ErrorPage() {
           Back to Home Page
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }
