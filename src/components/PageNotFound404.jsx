@@ -44,10 +44,10 @@ export default function PageNotFound404() {
       <p id="notfound-text" style={colorStyle()}>
         Page Not Found
       </p>
-      <img id="notfound-image" src="/src/assets/pagenotfound.jpg" width="100%" />
+      <img id="notfound-image" src="/src/assets/pagenotfound.png" width="100%" />
       <h2></h2>
       <p id="notfound-description" style={colorStyle()}>
-      Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place? Let's go home and try from there.
+      Maybe this page moved? <br />Got deleted? <br />Is hiding out in quarantine? <br />Never existed in the first place? <br />Let's go home and try from there.
       </p>
       <div id="notfound-quit-container">
         <Link to="/" id="notfound-quit-button" style={PageNotFoundQuitButtonStyle()}>

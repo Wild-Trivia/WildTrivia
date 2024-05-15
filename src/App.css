@@ -1273,8 +1273,12 @@ dd.summary-text {
     font-family: "Livvic", sans-serif;
     font-weight: 600;
     font-size: 2.5rem;
-    transform: translateY(20%);
-  }
+    transform: translateY(30%);
+    -webkit-transform: translateY(30%);
+    -moz-transform: translateY(30%);
+    -ms-transform: translateY(30%);
+    -o-transform: translateY(30%);
+}
   
   #notfound-description {
     flex: 3;
@@ -1282,14 +1286,12 @@ dd.summary-text {
     font-family: "Livvic", sans-serif;
     font-weight: 600;
     font-size: 1.3rem;
-    transform: translateY(10%);
   }
   
   #notfound-quit-container {
     flex: 1;
     width: 90%;
     text-align: center;
-    transform: translateY(10%);
   }
   
   #notfound-quit-button {
