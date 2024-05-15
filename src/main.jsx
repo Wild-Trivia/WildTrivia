@@ -16,7 +16,7 @@ import {
 import ProfileProvider from "./contexts/ProfileProvider.jsx";
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
-import PageNotFound404 from "./components/PageNotFound404.jsx";
+import PageNotFound404 from "./pages/PageNotFound404.jsx";
 
 
 const router = createBrowserRouter([
