@@ -16,6 +16,8 @@ import {
 import ProfileProvider from "./contexts/ProfileProvider.jsx";
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
+import PageNotFound404 from "./components/PageNotFound404.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -72,6 +74,10 @@ const router = createBrowserRouter([
         ),
         loader: () => challengeFetcher(15),
       },
+      {
+        path: "*",
+        element: <PageNotFound404 />
+      }
     ],
   },
 ]);
