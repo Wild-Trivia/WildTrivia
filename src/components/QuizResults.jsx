@@ -95,9 +95,9 @@ export default function QuizResults({
   };
 
   return (
-    <motion.div initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }} transition={{duration: 0.5}} id="quiz-results-container" style={resultPageStyle()}>
+    <motion.div initial={{ x: -100 }}
+    animate={{ x: 0 }}
+    transition={{ duration: 0.3 }} id="quiz-results-container" style={resultPageStyle()}>
       {goodAnswers / quizLength >= 0.5 && (
         <Confetti width="360px" height="760px" />
       )}
