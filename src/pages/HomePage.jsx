@@ -40,7 +40,7 @@ export default function HomePage() {
           quizMode: "Default",
           gameMode: "Custom Quiz",
           theme: "Any",
-          difficulty: "any",
+          difficulty: "Any",
           questionTotal: 10,
           quizTimer: 15,
           isSurvivalOn: false,
