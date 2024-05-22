@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "challengeName": "Fast Mode",
+    "description": "Be sharper than ever, cause with Fast Mode, you'll have only 5 seconds to answer each of the twenty questions you'll face!",
+    "image": "/src/assets/fast-mode.jpg",
+    "route": "/challenges/fastmode",
+    "color": "#00688b"
+  },
+  {
+    "id": 2,
+    "challengeName": "Survival",
+    "description": "Make your way in a rain of forty questions! Here, you start the game with three lives, and the quiz goes on until you're out!",
+    "image": "/src/assets/survival.jpg",
+    "route": "/challenges/survival",
+    "color": "#ca3291"
+  },
+  {
+    "id": 3,
+    "challengeName": "Daily",
+    "description": "Get ready for your cosy challenge of the day! Nothing special, just ten question on a single theme, chosen with love by our team!",
+    "image": "/src/assets/daily.jpg",
+    "route": "/challenges/daily",
+    "color": "#2e8b57"
+  },
+  {
+    "id": 4,
+    "challengeName": "Random",
+    "description": "Fifteen questions, random themes and difficulty. Your best pick if you think you can face any quiz!",
+    "image": "/src/assets/random.jpg",
+    "route": "/challenges/random",
+    "color": "#dd4d4d"
+  }
+]
